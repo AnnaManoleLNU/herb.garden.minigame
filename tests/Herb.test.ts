@@ -6,6 +6,6 @@ test("a herb should be created with name", () => {
 })
 
 test("name should throw exception if longer than 50 characters", () => {
-  const longName = "Looooooooooooooooooooooooooooooooooooong alligator pepper";
+  const longName = 'a'.repeat(51)
   expect(() => new Herb(longName)).toThrow(Error);
 })
