@@ -1,30 +1,18 @@
-export enum HerbName {
+enum HerbName {
   Thyme = "Thyme",
   Basil = "Basil",
   Rosemary = "Rosemary"
 }
 
 export class Herb {
-  #name: string
+  #name: HerbName
 
-  constructor(name: string) {
-    name = this.#fixCaseSensitiveHerbName(name)
-    this.#throwErrorIfInvalidHerbName(name)
+  constructor(name: HerbName) {
     this.#name = name
   }
 
-  get name(): string {
+  get name(): HerbName {
     return this.#name
-  }
-
-  #throwErrorIfInvalidHerbName = (name: string): void => {
-    if (!(name in HerbName)) {
-      throw new Error(`Invalid herb name: ${name}. Must be one of the specified herbs.`);
-    }
-  }
-
-  #fixCaseSensitiveHerbName = (name: string): string => {
-    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
   }
 
 }
