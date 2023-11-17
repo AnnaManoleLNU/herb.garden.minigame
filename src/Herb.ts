@@ -4,6 +4,9 @@ export class Herb {
   constructor(name: string) {
     this.#checkNameLength(name)
     this.#name = name
+    if (name === "Dill") {
+      throw new Error("Dill is not an acceptable herb in this game.");
+    }
   }
 
   get name(): string {
