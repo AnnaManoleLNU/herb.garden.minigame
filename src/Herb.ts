@@ -8,8 +8,9 @@ export class Herb {
   #name: string
 
   constructor(name: string) {
-    this.#name = name
+    name = this.#fixCaseSensitiveHerbName(name)
     this.#throwErrorIfInvalidHerbName(name)
+    this.#name = name
   }
 
   get name(): string {
@@ -20,6 +21,10 @@ export class Herb {
     if (!(name in HerbName)) {
       throw new Error(`Invalid herb name: ${name}. Must be one of the specified herbs.`);
     }
+  }
+
+  #fixCaseSensitiveHerbName = (name: string): string => {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
   }
 
 }

@@ -10,4 +10,4 @@ test("herb's name attribute should match the exact string value of the HerbName 
   const herb = new Herb(herbName)
   
   expect(herb.name).toBe(HerbName.Thyme)
-});
+})
