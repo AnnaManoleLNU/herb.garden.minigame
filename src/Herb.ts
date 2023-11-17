@@ -1,21 +1,25 @@
+enum HerbName {
+  Thyme = "Thyme",
+  Basil = "Basil",
+  Rosemary = "Rosemary"
+}
+
 export class Herb {
   #name: string
 
   constructor(name: string) {
-    this.#checkNameLength(name)
     this.#name = name
-    if (name === "Dill") {
-      throw new Error("Dill is not an acceptable herb in this game.");
-    }
+    this.#throwErrorIfInvalidHerbName(name)
   }
 
   get name(): string {
     return this.#name
   }
 
-  #checkNameLength(name: string) {
-    if (name.length > 50) {
-      throw new Error("Name must be less than 50 characters long.");
+  #throwErrorIfInvalidHerbName = (name: string): void => {
+    if (!(name in HerbName)) {
+      throw new Error(`Invalid herb name: ${name}. Must be one of the specified herbs.`);
     }
   }
+
 }
