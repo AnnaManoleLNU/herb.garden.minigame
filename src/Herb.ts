@@ -29,6 +29,9 @@ export class Herb {
     if (wateringNeeds > 3) {
       throw new Error("Watering needs cannot be higher than 3")
     }
+    if (wateringNeeds % 1 !== 0) {
+      throw new Error("Watering needs must be a whole number")
+    }
   }
 
 }
