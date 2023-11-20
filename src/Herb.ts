@@ -28,13 +28,4 @@ export class Herb {
     this.#optimalHarvestingTime = optimalHarvestingTime
   }
 
-  get name(): HerbName {
-    return this.#name
-  }
-
-  get wateringNeeds(): number {
-    return this.#wateringNeeds
-  }
-
-
 }
