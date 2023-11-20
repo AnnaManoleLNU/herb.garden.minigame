@@ -11,3 +11,7 @@ test("Herb should throw an error if watering needs is higher than 3", () => {
 test("Herb should throw an error if watering needs is not a whole number", () => {
   expect(() => new Herb(HerbName.Thyme, 1.7)).toThrow()
 })
+
+test("Herb should throw error if harvesting needs is less than 1", () => {
+  expect(() => new Herb(HerbName.Thyme, 1, 0)).toThrow()
+})
