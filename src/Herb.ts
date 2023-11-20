@@ -31,8 +31,8 @@ export class Herb {
   }
 
   #validateOptimalHarvestingTime = (optimalHarvestingTime: number): number => {
-    if (optimalHarvestingTime < 2 || optimalHarvestingTime > 5) {
-      throw new Error("Harvesting cannot begin until day 2 and ends after 5.")
+    if (optimalHarvestingTime < 2 || optimalHarvestingTime > 5 || !Number.isInteger(optimalHarvestingTime)) {
+      throw new Error("Harvesting cannot begin until day 2 and ends after 5. It must be a whole number.")
     }
     return optimalHarvestingTime
   }
