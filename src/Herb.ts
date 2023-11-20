@@ -7,10 +7,12 @@ export enum HerbName {
 export class Herb {
   #name: HerbName
   #wateringNeeds: number
+  #optimalHarvestingTime: number
 
-  constructor(name: HerbName, wateringNeeds: number) {
+  constructor(name: HerbName, wateringNeeds: number, optimalHarvestingTime: number) {
     this.#name = name
     this.#wateringNeeds = this.#validateWateringNeeds(wateringNeeds)
+    this.#optimalHarvestingTime = this.#validateOptimalHarvestingTime(optimalHarvestingTime)
   }
 
   get name(): HerbName {
@@ -26,6 +28,13 @@ export class Herb {
       throw new Error("Watering needs must be a whole number between 1 and 3.")
     }
     return wateringNeeds
+  }
+
+  #validateOptimalHarvestingTime = (optimalHarvestingTime: number): number => {
+    if (optimalHarvestingTime < 2) {
+      throw new Error("Harvesting cannot begin until day 2.")
+    }
+    return optimalHarvestingTime
   }
 
 }
