@@ -1,17 +1,16 @@
 import { Herb , HerbName } from "../src/Herb"
 
-test("Herb should throw an error if watering needs is less than 1", () => {
-  expect(() => new Herb(HerbName.Thyme, 0, 2)).toThrow()
-})
+describe("Herb class validations", () => {
+  const invalidHerbConfigurations = [
+    { name: HerbName.Thyme, water: 0, harvest: 2, description: "watering needs less than 1" },
+    { name: HerbName.Thyme, water: 4, harvest: 2, description: "watering needs higher than 3" },
+    { name: HerbName.Thyme, water: 1.7, harvest: 2, description: "watering needs not a whole number" },
+    { name: HerbName.Thyme, water: 1, harvest: 1, description: "optimal harvesting time less than 2" },
+  ]
 
-test("Herb should throw an error if watering needs is higher than 3", () => {
-  expect(() => new Herb(HerbName.Thyme, 4, 2)).toThrow()
-})
-
-test("Herb should throw an error if watering needs is not a whole number", () => {
-  expect(() => new Herb(HerbName.Thyme, 1.7, 2)).toThrow()
-})
-
-test("Herb should throw error if harvesting needs is less than 2", () => {
-  expect(() => new Herb(HerbName.Thyme, 1, 1)).toThrow()
+  invalidHerbConfigurations.forEach(({ name, water, harvest, description }) => {
+    test(`Herb should throw an error if ${description}`, () => {
+      expect(() => new Herb(name, water, harvest)).toThrow()
+    })
+  })
 })
