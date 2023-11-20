@@ -6,6 +6,7 @@ describe("Herb class validations", () => {
     { name: HerbName.Thyme, water: 4, harvest: 2, description: "watering needs higher than 3" },
     { name: HerbName.Thyme, water: 1.7, harvest: 2, description: "watering needs not a whole number" },
     { name: HerbName.Thyme, water: 1, harvest: 1, description: "optimal harvesting time less than 2" },
+    {name: HerbName.Thyme, water: 1, harvest: 6, description: "optimal harvesting time higher than 5"}
   ]
 
   invalidHerbConfigurations.forEach(({ name, water, harvest, description }) => {
