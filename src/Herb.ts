@@ -4,15 +4,28 @@ export enum HerbName {
   Rosemary = "Rosemary"
 }
 
+export enum WateringNeeds {
+  Low = 1,
+  Medium = 2,
+  High = 3
+}
+
+export enum OptimalHarvestingTime {
+  Day2 = 2,
+  Day3 = 3,
+  Day4 = 4,
+  Day5 = 5
+}
+
 export class Herb {
   #name: HerbName
-  #wateringNeeds: number
-  #optimalHarvestingTime: number
+  #wateringNeeds: WateringNeeds
+  #optimalHarvestingTime: OptimalHarvestingTime
 
-  constructor(name: HerbName, wateringNeeds: number, optimalHarvestingTime: number) {
+  constructor(name: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime) {
     this.#name = name
-    this.#wateringNeeds = this.#validateWateringNeeds(wateringNeeds)
-    this.#optimalHarvestingTime = this.#validateOptimalHarvestingTime(optimalHarvestingTime)
+    this.#wateringNeeds = wateringNeeds
+    this.#optimalHarvestingTime = optimalHarvestingTime
   }
 
   get name(): HerbName {
@@ -23,18 +36,5 @@ export class Herb {
     return this.#wateringNeeds
   }
 
-  #validateWateringNeeds = (wateringNeeds: number): number => {
-    if (wateringNeeds < 1 || wateringNeeds > 3 || !Number.isInteger(wateringNeeds)) {
-      throw new Error("Watering needs must be a whole number between 1 and 3.")
-    }
-    return wateringNeeds
-  }
-
-  #validateOptimalHarvestingTime = (optimalHarvestingTime: number): number => {
-    if (optimalHarvestingTime < 2 || optimalHarvestingTime > 5 || !Number.isInteger(optimalHarvestingTime)) {
-      throw new Error("Harvesting cannot begin until day 2 and ends after 5. It must be a whole number.")
-    }
-    return optimalHarvestingTime
-  }
 
 }
