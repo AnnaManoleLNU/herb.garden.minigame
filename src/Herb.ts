@@ -13,6 +13,9 @@ export class Herb {
     if (wateringNeeds < 1) {
       throw new Error("Watering needs cannot be less than 1")
     }
+    if (wateringNeeds > 3) {
+      throw new Error("Watering needs cannot be higher than 3")
+    }
     this.#wateringNeeds = wateringNeeds
   }
 
