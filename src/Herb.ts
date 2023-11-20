@@ -34,6 +34,9 @@ export class Herb {
     if (optimalHarvestingTime < 2) {
       throw new Error("Harvesting cannot begin until day 2.")
     }
+    if (optimalHarvestingTime > 5) {
+      throw new Error("You can no longer harvest after day 5.")
+    }
     return optimalHarvestingTime
   }
 
