@@ -1,4 +1,4 @@
-enum HerbName {
+export enum HerbName {
   Thyme = "Thyme",
   Basil = "Basil",
   Rosemary = "Rosemary"
