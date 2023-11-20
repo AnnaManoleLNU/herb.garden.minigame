@@ -10,12 +10,7 @@ export class Herb {
 
   constructor(name: HerbName, wateringNeeds: number) {
     this.#name = name
-    if (wateringNeeds < 1) {
-      throw new Error("Watering needs cannot be less than 1")
-    }
-    if (wateringNeeds > 3) {
-      throw new Error("Watering needs cannot be higher than 3")
-    }
+    this.#checkWateringNeeds(wateringNeeds)
     this.#wateringNeeds = wateringNeeds
   }
 
@@ -25,6 +20,15 @@ export class Herb {
 
   get wateringNeeds(): number {
     return this.#wateringNeeds
+  }
+
+  #checkWateringNeeds(wateringNeeds: number): void {
+    if (wateringNeeds < 1) {
+      throw new Error("Watering needs cannot be less than 1")
+    }
+    if (wateringNeeds > 3) {
+      throw new Error("Watering needs cannot be higher than 3")
+    }
   }
 
 }
