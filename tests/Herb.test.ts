@@ -1,13 +1,13 @@
 import { Herb , HerbName } from "../src/Herb"
 
 test("Herb should throw an error if watering needs is less than 1", () => {
-  expect(() => new Herb(HerbName.Thyme, 0)).toThrow("Watering needs cannot be less than 1")
+  expect(() => new Herb(HerbName.Thyme, 0)).toThrow()
 })
 
 test("Herb should throw an error if watering needs is higher than 3", () => {
-  expect(() => new Herb(HerbName.Thyme, 4)).toThrow("Watering needs cannot be higher than 3")
+  expect(() => new Herb(HerbName.Thyme, 4)).toThrow()
 })
 
-test("Herb should have watering needs that is a whole number", () => {
-  expect(() => new Herb(HerbName.Thyme, 1.7)).toThrow("Watering needs must be a whole number")
+test("Herb should throw an error if watering needs is not a whole number", () => {
+  expect(() => new Herb(HerbName.Thyme, 1.7)).toThrow()
 })

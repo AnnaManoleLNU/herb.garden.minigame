@@ -10,8 +10,7 @@ export class Herb {
 
   constructor(name: HerbName, wateringNeeds: number) {
     this.#name = name
-    this.#checkWateringNeeds(wateringNeeds)
-    this.#wateringNeeds = wateringNeeds
+    this.#wateringNeeds = this.#validateWateringNeeds(wateringNeeds)
   }
 
   get name(): HerbName {
@@ -22,16 +21,11 @@ export class Herb {
     return this.#wateringNeeds
   }
 
-  #checkWateringNeeds(wateringNeeds: number): void {
-    if (wateringNeeds < 1) {
-      throw new Error("Watering needs cannot be less than 1")
+  #validateWateringNeeds = (wateringNeeds: number): number => {
+    if (wateringNeeds < 1 || wateringNeeds > 3 || !Number.isInteger(wateringNeeds)) {
+      throw new Error("Watering needs must be a whole number between 1 and 3.")
     }
-    if (wateringNeeds > 3) {
-      throw new Error("Watering needs cannot be higher than 3")
-    }
-    if (wateringNeeds % 1 !== 0) {
-      throw new Error("Watering needs must be a whole number")
-    }
+    return wateringNeeds
   }
 
 }
