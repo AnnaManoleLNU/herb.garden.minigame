@@ -10,10 +10,7 @@ export class Herb {
 
   constructor(name: HerbName, wateringNeeds: number) {
     this.#name = name
-    this.#wateringNeeds = wateringNeeds
-    if (wateringNeeds < 1) {
-      this.#wateringNeeds = 1
-    }
+    this.#wateringNeeds = this.#checkWateringNeeds(wateringNeeds)
   }
 
   get name(): HerbName {
@@ -22,6 +19,14 @@ export class Herb {
 
   get wateringNeeds(): number {
     return this.#wateringNeeds
+  }
+
+  #checkWateringNeeds(wateringNeeds: number): number {
+    if (wateringNeeds < 1) {
+      return 1
+    } else {
+      return wateringNeeds
+    }
   }
 
 }
