@@ -26,6 +26,10 @@ export class Herb {
     this.#name = name
     this.#wateringNeeds = wateringNeeds
     this.#optimalHarvestingTime = optimalHarvestingTime
+  } 
+  
+  getName(): any {
+    throw new Error("Method not implemented.")
   }
 
 }
