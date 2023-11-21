@@ -11,4 +11,9 @@ describe("Herb class with valid getters", () => {
     const herb = new Herb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
     expect(herb.getName()).toBe("Basil")
   })
+
+  test("should get the name of another herb", () => {
+    const herb2 = new Herb(HerbName.Rosemary, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
+    expect(herb2.getName()).toBe("Rosermary")
+  })
 })
