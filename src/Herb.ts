@@ -28,8 +28,8 @@ export class Herb {
     this.#optimalHarvestingTime = optimalHarvestingTime
   } 
   
-  getName(): any {
-    throw new Error("Method not implemented.")
+  getName(): HerbName {
+    return HerbName.Basil
   }
 
 }
