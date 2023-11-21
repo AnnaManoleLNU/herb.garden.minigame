@@ -31,5 +31,4 @@ export class Herb {
   getName(): HerbName {
     return HerbName.Basil
   }
-
 }
