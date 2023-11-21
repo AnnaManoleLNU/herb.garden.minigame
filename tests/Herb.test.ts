@@ -7,13 +7,21 @@ describe("Herb class with valid enum values", () => {
 })
 
 describe("Herb class with valid getters", () => {
-  test("should get the name of the herb", () => {
-    const herb = new Herb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
-    expect(herb.getName()).toBe("Basil")
+  test("should get the name of another herb", () => {
+    testNames(HerbName.Rosemary, WateringNeeds.Medium, OptimalHarvestingTime.Day3, "Rosemary")
   })
 
-  test("should get the name of another herb", () => {
-    const herb2 = new Herb(HerbName.Rosemary, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
-    expect(herb2.getName()).toBe("Rosemary")
+  test("should get the name of the herb", () => {
+    testNames(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3, "Basil")
+  })
+
+  test("should get the watering needs of the herb", () => {
+    const herb = new Herb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
+    expect(herb.wateringNeeds).toBe(2)
   })
 })
+
+function testNames(herbName: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime, expectedName: String) {
+  const herb = new Herb(herbName, wateringNeeds, optimalHarvestingTime, )
+  expect(herb.name).toBe(expectedName)
+}
