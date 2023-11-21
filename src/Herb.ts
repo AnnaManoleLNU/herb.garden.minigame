@@ -35,4 +35,8 @@ export class Herb {
   get wateringNeeds(): WateringNeeds {
     return this.#wateringNeeds
   }
+
+  get optimalHarvestingTime(): number {
+    return 0
+  }
 }

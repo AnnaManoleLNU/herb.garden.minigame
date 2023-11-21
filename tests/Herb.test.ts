@@ -22,6 +22,11 @@ describe("Herb class with valid getters", () => {
   test("should get the medium watering needs", () => {
     testWateringNeeds(HerbName.Thyme, WateringNeeds.Medium, OptimalHarvestingTime.Day2, 2)
   })
+
+  test("should get the optimal harvesting time of 2 days", () => {
+    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    expect(herb.optimalHarvestingTime).toBe(2)
+  })
 })
 
 function testNames(herbName: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime, expectedName: String) {
