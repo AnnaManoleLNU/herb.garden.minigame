@@ -7,35 +7,37 @@ describe("Herb class with valid enum values", () => {
 })
 
 describe("Herb class with valid getters", () => {
-  test("should get the name of Basil", () => {
-    testNames(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3, "Basil")
-  })
+  testName(HerbName.Basil, "Basil");
+  testName(HerbName.Rosemary, "Rosemary");
+  testName(HerbName.Thyme, "Thyme");
 
-  test("should get the name of Rosemary", () => {
-    testNames(HerbName.Rosemary, WateringNeeds.Medium, OptimalHarvestingTime.Day3, "Rosemary")
-  })
+  testWateringNeeds(HerbName.Thyme, WateringNeeds.Low, 1);
+  testWateringNeeds(HerbName.Thyme, WateringNeeds.Medium, 2);
+  testWateringNeeds(HerbName.Thyme, WateringNeeds.High, 3);
 
-  test("should get the low watering needs", () => {
-    testWateringNeeds(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2, 1)
-  })
-
-  test("should get the medium watering needs", () => {
-    testWateringNeeds(HerbName.Thyme, WateringNeeds.Medium, OptimalHarvestingTime.Day2, 2)
-  })
-
-  test("should get the optimal harvesting time of 2 days", () => {
-    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
-    expect(herb.optimalHarvestingTime).toBe(2)
-  })
+  testOptimalHarvestingTime(HerbName.Thyme, OptimalHarvestingTime.Day2, 2);
+  testOptimalHarvestingTime(HerbName.Thyme, OptimalHarvestingTime.Day3, 3);
+  testOptimalHarvestingTime(HerbName.Thyme, OptimalHarvestingTime.Day4, 4);
+  testOptimalHarvestingTime(HerbName.Thyme, OptimalHarvestingTime.Day5, 5);
 })
 
-function testNames(herbName: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime, expectedName: String) {
-  const herb = new Herb(herbName, wateringNeeds, optimalHarvestingTime, )
-  expect(herb.name).toBe(expectedName)
+function testName(herbName: HerbName, expectedName: string) {
+  test(`should get the name of ${expectedName}`, () => {
+    const herb = new Herb(herbName, WateringNeeds.Medium, OptimalHarvestingTime.Day3);
+    expect(herb.name).toBe(expectedName);
+  })
 }
 
-function testWateringNeeds(herbName: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime, expectedWateringNeeds: WateringNeeds) {
-  const herb = new Herb(herbName, wateringNeeds, optimalHarvestingTime, )
-  expect(herb.wateringNeeds).toBe(expectedWateringNeeds)
+function testWateringNeeds(herbName: HerbName, wateringNeeds: WateringNeeds, expectedWateringNeeds: number) {
+  test(`should get the ${wateringNeeds === WateringNeeds.Low ? 'low' : 'medium'} watering needs for ${herbName}`, () => {
+    const herb = new Herb(herbName, wateringNeeds, OptimalHarvestingTime.Day2)
+    expect(herb.wateringNeeds).toBe(expectedWateringNeeds)
+  })
 }
 
+function testOptimalHarvestingTime(herbName: HerbName, optimalHarvestingTime: OptimalHarvestingTime, expectedOptimalHarvestingTime: number) {
+  test(`should get the optimal harvesting time of ${expectedOptimalHarvestingTime} days for ${herbName}`, () => {
+    const herb = new Herb(herbName, WateringNeeds.Low, optimalHarvestingTime)
+    expect(herb.optimalHarvestingTime).toBe(expectedOptimalHarvestingTime)
+  })
+}
