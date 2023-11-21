@@ -16,13 +16,11 @@ describe("Herb class with valid getters", () => {
   })
 
   test("should get the low watering needs", () => {
-    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
-    expect(herb.wateringNeeds).toBe(1)
+    testWateringNeeds(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2, 1)
   })
 
   test("should get the medium watering needs", () => {
-    const herb = new Herb(HerbName.Thyme, WateringNeeds.Medium, OptimalHarvestingTime.Day2)
-    expect(herb.wateringNeeds).toBe(2)
+    testWateringNeeds(HerbName.Thyme, WateringNeeds.Medium, OptimalHarvestingTime.Day2, 2)
   })
 })
 
@@ -30,3 +28,9 @@ function testNames(herbName: HerbName, wateringNeeds: WateringNeeds, optimalHarv
   const herb = new Herb(herbName, wateringNeeds, optimalHarvestingTime, )
   expect(herb.name).toBe(expectedName)
 }
+
+function testWateringNeeds(herbName: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime, expectedWateringNeeds: WateringNeeds) {
+  const herb = new Herb(herbName, wateringNeeds, optimalHarvestingTime, )
+  expect(herb.wateringNeeds).toBe(expectedWateringNeeds)
+}
+
