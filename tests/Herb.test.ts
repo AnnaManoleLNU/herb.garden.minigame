@@ -7,15 +7,15 @@ describe("Herb class with valid enum values", () => {
 })
 
 describe("Herb class with valid getters", () => {
-  test("should get the name of the herb", () => {
+  test("should get the name of Basil", () => {
     testNames(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3, "Basil")
   })
 
-  test("should get the name of another herb", () => {
+  test("should get the name of Rosemary", () => {
     testNames(HerbName.Rosemary, WateringNeeds.Medium, OptimalHarvestingTime.Day3, "Rosemary")
   })
 
-  test("should get the watering needs of the herb", () => {
+  test("should get the low watering needs", () => {
     const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     expect(herb.wateringNeeds).toBe(1)
   })
