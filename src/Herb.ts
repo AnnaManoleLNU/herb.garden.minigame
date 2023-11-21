@@ -36,7 +36,8 @@ export class Herb {
     return this.#wateringNeeds
   }
 
-  get optimalHarvestingTime(): number {
-    return 0
+  get optimalHarvestingTime(): OptimalHarvestingTime {
+    // perhaps here the developer finally realizes how to implement the logic on the first try 
+    return this.#optimalHarvestingTime
   }
 }
