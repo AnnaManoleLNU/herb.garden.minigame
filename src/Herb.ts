@@ -32,7 +32,7 @@ export class Herb {
     return this.#name
   }
 
-  get wateringNeeds(): number {
-    return 0
+  get wateringNeeds(): WateringNeeds {
+    return 1
   }
 }
