@@ -22,27 +22,21 @@ describe("Herb class with valid getters", () => {
 })
 
 describe("Herb quality", () => {
-  test ("should get the quality of a new herb", () => {
+  test("should get the quality of a new herb", () => {
     const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
-    expect(herb.quality).toBe(0)
-  })
-
-  test("herb quality should be set to 0 if a negative value is passed", () => {
-    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
-    herb.quality = -1
     expect(herb.quality).toBe(0)
   })
 
   test("herb quality should be set to a value", () => {
-    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
-    herb.quality = 1
-    expect(herb.quality).toBe(1)
+    testQuality(HerbName.Thyme, 1, 1)
+  })
+
+  test("herb quality should be set to 0 if a negative value is passed", () => {
+    testQuality(HerbName.Thyme, -1, 0)
   })
 
   test("herb quality should be set to 3 if a value greater than 3 is passed", () => {
-    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
-    herb.quality = 4
-    expect(herb.quality).toBe(3)
+    testQuality(HerbName.Thyme, 4, 3)
   })
 })
 
@@ -65,4 +59,10 @@ function testOptimalHarvestingTime(herbName: HerbName, optimalHarvestingTime: Op
     const herb = new Herb(herbName, WateringNeeds.Low, optimalHarvestingTime)
     expect(herb.optimalHarvestingTime).toBe(expectedOptimalHarvestingTime)
   })
+}
+
+function testQuality(herbName: HerbName, quality: number, expectedQuality: number) {
+    const herb = new Herb(herbName, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    herb.quality = quality
+    expect(herb.quality).toBe(expectedQuality)
 }
