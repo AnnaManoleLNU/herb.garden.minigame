@@ -47,6 +47,9 @@ export class Herb {
   }
 
   set quality(value: number) {
+    if (value < 0) {
+      value = 0
+    }
     this.#quality = value
   }
 
