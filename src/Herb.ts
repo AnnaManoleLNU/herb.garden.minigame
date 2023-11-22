@@ -39,7 +39,6 @@ export class Herb {
   }
 
   get optimalHarvestingTime(): OptimalHarvestingTime {
-    // perhaps here the developer finally realizes how to implement the logic on the first try 
     return this.#optimalHarvestingTime
   }
 
