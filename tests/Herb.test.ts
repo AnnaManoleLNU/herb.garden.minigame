@@ -38,6 +38,12 @@ describe("Herb quality", () => {
     herb.quality = 1
     expect(herb.quality).toBe(1)
   })
+
+  test("herb quality should be set to 3 if a value greater than 3 is passed", () => {
+    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    herb.quality = 4
+    expect(herb.quality).toBe(3)
+  })
 })
 
 function testName(herbName: HerbName, expectedName: string) {
