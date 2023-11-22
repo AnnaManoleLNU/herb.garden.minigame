@@ -27,10 +27,16 @@ describe("Herb quality", () => {
     expect(herb.quality).toBe(0)
   })
 
-  test("herb quality should not be less than 0", () => {
+  test("herb quality should be set to 0 if a negative value is passed", () => {
     const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     herb.quality = -1
     expect(herb.quality).toBe(0)
+  })
+
+  test("herb quality should be set to a value", () => {
+    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    herb.quality = 1
+    expect(herb.quality).toBe(1)
   })
 })
 
