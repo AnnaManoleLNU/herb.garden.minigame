@@ -21,11 +21,13 @@ export class Herb {
   #name: HerbName
   #wateringNeeds: WateringNeeds
   #optimalHarvestingTime: OptimalHarvestingTime
+  #quality: number
 
   constructor(name: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime) {
     this.#name = name
     this.#wateringNeeds = wateringNeeds
     this.#optimalHarvestingTime = optimalHarvestingTime
+    this.#quality = 1
   } 
   
   get name(): HerbName {
@@ -40,4 +42,9 @@ export class Herb {
     // perhaps here the developer finally realizes how to implement the logic on the first try 
     return this.#optimalHarvestingTime
   }
+
+  get quality(): number {
+    return 1
+  }
+
 }
