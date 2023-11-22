@@ -47,6 +47,7 @@ export class Herb {
   }
 
   set quality(value: number) {
+    // We don't want to throw an error here, but we don't want to allow negative values either. Setter may only be needed for the test.
     if (value < 0) {
       value = 0
     }
