@@ -26,6 +26,12 @@ describe("Herb quality", () => {
     const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     expect(herb.quality).toBe(0)
   })
+
+  test("herb quality should not be less than 0", () => {
+    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    herb.quality = -1
+    expect(herb.quality).toBe(0)
+  })
 })
 
 function testName(herbName: HerbName, expectedName: string) {
