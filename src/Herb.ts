@@ -27,7 +27,7 @@ export class Herb {
     this.#name = name
     this.#wateringNeeds = wateringNeeds
     this.#optimalHarvestingTime = optimalHarvestingTime
-    this.#quality = 1
+    this.#quality = 0
   } 
   
   get name(): HerbName {
@@ -44,7 +44,7 @@ export class Herb {
   }
 
   get quality(): number {
-    return 1
+    return this.#quality
   }
 
 }
