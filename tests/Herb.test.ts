@@ -52,6 +52,7 @@ describe("Herb watering", () => {
     expect(herb.timesWatered).toBe(1)
   })
 
+  // Water 1 time
   test("if a herb has watering needs of 1, watering it 1 time should make its quality 3", () => {
     testWatering(HerbName.Thyme, WateringNeeds.Low, 1, 3)
   })
@@ -64,6 +65,7 @@ describe("Herb watering", () => {
     testWatering(HerbName.Thyme, WateringNeeds.High, 1, 1)
   })
 
+  // Water 2 times
   test("if a herb has watering needs of 1, watering it 2 times should make its quality 2", () => {
     testWatering(HerbName.Thyme, WateringNeeds.Low, 2, 2)
   })
@@ -76,6 +78,7 @@ describe("Herb watering", () => {
     testWatering(HerbName.Thyme, WateringNeeds.High, 2, 2)
   })
 
+  // Water 3 times
   test("if a herb has watering needs of 1, watering it 3 times should make its quality 1", () => {
     testWatering(HerbName.Thyme, WateringNeeds.Low, 3, 1)
   })

@@ -57,9 +57,8 @@ export class Herb {
   water(): void {
     this.#timesWatered++
 
-    const maxQuality = 3
     if (this.#timesWatered === 1) {
-      this.#quality = maxQuality - this.#wateringNeeds + 1
+      this.#quality = 3 - this.#wateringNeeds + 1
     }
 
     if (this.#wateringNeeds === 1 && this.#timesWatered === 2) {
