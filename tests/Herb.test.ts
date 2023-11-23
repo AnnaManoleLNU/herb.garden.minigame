@@ -40,6 +40,13 @@ describe("Herb quality", () => {
   })
 })
 
+describe("Herb watering", () => {
+  test("the amount of times a new herb has been watered should be 0", () => {
+    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    expect(herb.timesWatered).toBe(0)
+  })
+})
+
 function testName(herbName: HerbName, expectedName: string) {
   test(`should get the name of ${expectedName}`, () => {
     const herb = new Herb(herbName, WateringNeeds.Medium, OptimalHarvestingTime.Day3);
