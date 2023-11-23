@@ -22,12 +22,14 @@ export class Herb {
   #wateringNeeds: WateringNeeds
   #optimalHarvestingTime: OptimalHarvestingTime
   #quality: number
+  #timesWatered: number
 
   constructor(name: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime) {
     this.#name = name
     this.#wateringNeeds = wateringNeeds
     this.#optimalHarvestingTime = optimalHarvestingTime
     this.#quality = 0
+    this.#timesWatered = 0
   }
 
   get name(): HerbName {
@@ -54,6 +56,10 @@ export class Herb {
     } else {
       this.#quality = value
     }
+  }
+
+  get timesWatered(): number {
+    return this.#timesWatered
   }
 
 }
