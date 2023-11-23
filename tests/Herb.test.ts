@@ -60,6 +60,9 @@ describe("Herb watering", () => {
     testWateringOnce(HerbName.Thyme, WateringNeeds.Medium, 2)
   })
 
+  test("if a herb has watering needs of 3, watering it once should make its quality 1", () => {
+    testWateringOnce(HerbName.Thyme, WateringNeeds.High, 1)
+  })
 })
 
 function testName(herbName: HerbName, expectedName: string) {
