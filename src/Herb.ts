@@ -54,8 +54,8 @@ export class Herb {
     return this.#timesWatered
   }
 
-  water(): number {
-    return this.#timesWatered += 1
+  water(): void {
+    this.#timesWatered++
   }
 
 }
