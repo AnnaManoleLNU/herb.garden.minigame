@@ -21,15 +21,13 @@ export class Herb {
   #name: HerbName
   #wateringNeeds: WateringNeeds
   #optimalHarvestingTime: OptimalHarvestingTime
-  #quality: number
-  #timesWatered: number
+  #quality: number = 0
+  #timesWatered: number = 0
 
   constructor(name: HerbName, wateringNeeds: WateringNeeds, optimalHarvestingTime: OptimalHarvestingTime) {
     this.#name = name
     this.#wateringNeeds = wateringNeeds
     this.#optimalHarvestingTime = optimalHarvestingTime
-    this.#quality = 0
-    this.#timesWatered = 0
   }
 
   get name(): HerbName {
@@ -49,13 +47,7 @@ export class Herb {
   }
 
   set quality(value: number) {
-    if (value < 0) {
-      this.#quality = 0
-    } else if (value > 3) {
-      this.#quality = 3
-    } else {
-      this.#quality = value
-    }
+    this.#quality = Math.max(0, Math.min(value, 3));
   }
 
   get timesWatered(): number {
