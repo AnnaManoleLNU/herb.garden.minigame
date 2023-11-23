@@ -56,6 +56,9 @@ export class Herb {
 
   water(): void {
     this.#timesWatered++
+    if (this.#wateringNeeds === 1 && this.#timesWatered === 1) {
+      this.#quality = 3
+    }
   }
 
 }
