@@ -62,6 +62,10 @@ export class Herb {
       this.#quality = maxQuality - this.#wateringNeeds + 1
     }
 
+    if (this.#wateringNeeds === 1 && this.#timesWatered === 2) {
+      this.#quality = 2
+    }
+
   }
 
 }
