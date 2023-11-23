@@ -60,7 +60,7 @@ export class Herb {
     const maxQuality = 3
     if (this.#timesWatered === 1) {
       this.#quality = maxQuality - this.#wateringNeeds + 1
-    } 
+    }
 
   }
 

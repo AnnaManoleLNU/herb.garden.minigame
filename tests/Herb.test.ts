@@ -63,6 +63,13 @@ describe("Herb watering", () => {
   test("if a herb has watering needs of 3, watering it once should make its quality 1", () => {
     testWateringOnce(HerbName.Thyme, WateringNeeds.High, 1)
   })
+
+  test("if a herb has watering needs of 1, watering it twice should make its quality 2", () => {
+    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    herb.water()
+    herb.water()
+    expect(herb.quality).toBe(2)
+  })
 })
 
 function testName(herbName: HerbName, expectedName: string) {
