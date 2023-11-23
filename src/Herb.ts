@@ -54,4 +54,8 @@ export class Herb {
     return this.#timesWatered
   }
 
+  water(): any {
+    return null
+  }
+
 }

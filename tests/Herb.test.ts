@@ -45,6 +45,12 @@ describe("Herb watering", () => {
     const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     expect(herb.timesWatered).toBe(0)
   })
+
+  test("watering should increase the amount of times a herb has been watered by 1", () => {  
+    const herb = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
+    herb.water()
+    expect(herb.timesWatered).toBe(1)
+  })
 })
 
 function testName(herbName: HerbName, expectedName: string) {
