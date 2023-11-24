@@ -77,6 +77,9 @@ export class Herb {
     if (this.#wateringNeeds === 2 && this.#timesWatered === 3) {
       this.#quality = 2
     }
+    if (this.#wateringNeeds === 3 && this.#timesWatered === 3) {
+      this.#quality = 3
+    }
 
   }
 
