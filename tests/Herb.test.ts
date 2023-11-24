@@ -65,7 +65,7 @@ describe("Herb watering", () => {
   // Water 3 times with expected quality as last argument
     testWatering(HerbName.Thyme, WateringNeeds.Low, 3, 1)
     testWatering(HerbName.Thyme, WateringNeeds.Medium, 3, 2)
-
+    testWatering(HerbName.Thyme, WateringNeeds.High, 3, 3)
 })
 
 function testName(herbName: HerbName, expectedName: string) {
