@@ -57,30 +57,14 @@ export class Herb {
   water(): void {
     this.#timesWatered++
 
-    if (this.#timesWatered === 1) {
-      this.#quality = 3 - this.#wateringNeeds + 1
-    }
+    // Used Math.abs to ensure difference is always positive
+    const difference = Math.abs(this.#timesWatered - this.#wateringNeeds)
 
-    if (this.#wateringNeeds === 1 && this.#timesWatered === 2) {
-      this.#quality = 2
-    }
-    if (this.#wateringNeeds === 2 && this.#timesWatered === 2) {
-      this.#quality = 3
-    }
-    if (this.#wateringNeeds === 3 && this.#timesWatered === 2) {
-      this.#quality = 2
-    }
+    // Set quality to 3 when times watered matches watering needs, and decrease as the difference increases
+    this.#quality = 3 - difference
 
-    if (this.#wateringNeeds === 1 && this.#timesWatered === 3) {
-      this.#quality = 1
-    }
-    if (this.#wateringNeeds === 2 && this.#timesWatered === 3) {
-      this.#quality = 2
-    }
-    if (this.#wateringNeeds === 3 && this.#timesWatered === 3) {
-      this.#quality = 3
-    }
-
+    // Ensure quality is within bounds of 1 and 3 after watering
+    this.#quality = Math.max(1, Math.min(this.#quality, 3));
   }
 
 }
