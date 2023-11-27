@@ -5,7 +5,7 @@ export class Garden {
   #herbs: Herb[] = []
 
   constructor() {
-    this.#herbs.push(new Herb(HerbName.Basil, WateringNeeds.Low, OptimalHarvestingTime.Day2))
+    this.#herbs.push(new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2))
   }
 
   get herbs(): Herb[] {
