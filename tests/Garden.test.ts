@@ -1,5 +1,5 @@
 import { Garden } from '../src/Garden.ts'
-import { Herb } from '../src/Herb'
+import { Herb } from '../src/Herb.ts'
 
 describe("Garden class", () => {
   test("should have an array list of herbs", () => {
@@ -8,4 +8,5 @@ describe("Garden class", () => {
       expect(garden.herbs[i]).toBeInstanceOf(Herb)
     }
   })
+  
 })
