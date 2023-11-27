@@ -11,8 +11,8 @@ describe("Garden class", () => {
   })
 
   hasHerb("Thyme")
-  hasHerb("Rosemary")
   hasHerb("Basil")
+  hasHerb("Rosemary")
 
 })
 
