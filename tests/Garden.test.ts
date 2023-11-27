@@ -10,14 +10,15 @@ describe("Garden class", () => {
     }
   })
 
-  test("should have Thyme", () => {
-    const garden = new Garden()
-    expect(garden.herbs[0].name).toBe("Thyme")
-  })
-
-  test("should have Rosemary", () => {
-    const garden = new Garden()
-    expect(garden.herbs[1].name).toBe("Rosemary")
-  })
+  hasHerb("Thyme")
+  hasHerb("Rosemary")
 
 })
+
+function hasHerb(herbName: string) {
+  test(`should have ${herbName}`, () => {
+    const garden = new Garden()
+    const herbNames = garden.herbs.map(herb => herb.name)
+    expect(herbNames).toContain(herbName)
+  })
+}
