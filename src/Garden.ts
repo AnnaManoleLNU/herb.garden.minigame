@@ -7,6 +7,7 @@ export class Garden {
   constructor() {
     this.#addHerb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     this.#addHerb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day3)
+    this.#addHerb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day4)
   }
 
   get herbs(): Herb[] {
