@@ -17,4 +17,11 @@ describe("Garden class", () => {
     }
   })
 
+  test("should have Rosemary", () => {
+    const garden = new Garden()
+    for (let i = 0; i < garden.herbs.length; i++) {
+      expect(garden.herbs[i].name).toBe("Rosemary")
+    }    
+  })
+
 })
