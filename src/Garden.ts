@@ -1,8 +1,10 @@
+import { Herb } from "./Herb"
+
 export class Garden {
-  #herbs: any
+  #herbs: Herb[] = []
 
 
-  get herbs(): any[] {
+  get herbs(): Herb[] {
     return this.#herbs
   }
 }
