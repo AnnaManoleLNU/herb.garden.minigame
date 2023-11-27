@@ -12,16 +12,12 @@ describe("Garden class", () => {
 
   test("should have Thyme", () => {
     const garden = new Garden()
-    for (let i = 0; i < garden.herbs.length; i++) {
-      expect(garden.herbs[i].name).toBe("Thyme")
-    }
+    expect(garden.herbs[0].name).toBe("Thyme")
   })
 
   test("should have Rosemary", () => {
     const garden = new Garden()
-    for (let i = 0; i < garden.herbs.length; i++) {
-      expect(garden.herbs[i].name).toBe("Rosemary")
-    }    
+    expect(garden.herbs[1].name).toBe("Rosemary")
   })
 
 })
