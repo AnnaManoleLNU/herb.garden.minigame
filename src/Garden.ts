@@ -5,6 +5,7 @@ export class Garden {
   #herbs: Herb[] = []
 
   constructor(herbs: Herb[]) {
+    this.#herbs = herbs
     this.#addHerb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     this.#addHerb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
     this.#addHerb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
