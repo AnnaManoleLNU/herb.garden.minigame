@@ -4,7 +4,7 @@ import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 export class Garden {
   #herbs: Herb[] = []
 
-  constructor() {
+  constructor(herbs: Herb[]) {
     this.#addHerb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     this.#addHerb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
     this.#addHerb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
