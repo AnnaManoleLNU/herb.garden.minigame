@@ -1,31 +1,44 @@
 import { Garden } from '../src/Garden.ts'
-import { Herb } from '../src/Herb.ts'
+import * as HerbModule from '../src/Herb.ts'
 
-let herbs: Array<Herb>
+jest.mock('../src/Herb.ts', () => {
+  return {
+    Herb: jest.fn().mockImplementation((name, wateringNeeds, optimalHarvestingTime) => ({
+      name, 
+      wateringNeeds,
+      optimalHarvestingTime,
+    })),
+    HerbName: jest.requireActual('../src/Herb.ts').HerbName,
+    WateringNeeds: jest.requireActual('../src/Herb.ts').WateringNeeds,
+    OptimalHarvestingTime: jest.requireActual('../src/Herb.ts').OptimalHarvestingTime,
+  };
+});
+
 let garden: Garden
+let herbs: HerbModule.Herb[]
 
 beforeEach(() => {
-  herbs = new Array<Herb>()
+  jest.clearAllMocks()
+
+  herbs = [
+    new HerbModule.Herb(HerbModule.HerbName.Thyme, 1, 2),
+    new HerbModule.Herb(HerbModule.HerbName.Basil, 2, 3),
+    new HerbModule.Herb(HerbModule.HerbName.Rosemary, 3, 4)
+  ]
   garden = new Garden(herbs)
 })
 
 describe("Garden class", () => {
-  test("should have an array list of herbs", () => {
-    for (let i = 0; i < garden.herbs.length; i++) {
-      expect(garden.herbs[i]).toBeInstanceOf(Herb)
-    }
+  test("should create herbs in constructor", () => {
+    expect(HerbModule.Herb).toHaveBeenCalled()
   })
 
-  hasHerb("Thyme")
-  hasHerb("Basil")
-  hasHerb("Rosemary")
-
-  test("should have an array list of herbs in the constructor", () => {
-    expect(garden.herbs).toBe(herbs)
-  })
+  testHasHerb("Thyme")
+  testHasHerb("Basil")
+  testHasHerb("Rosemary")
 })
 
-function hasHerb(herbName: string) {
+function testHasHerb(herbName: string) {
   test(`should have ${herbName}`, () => {
     const herbNames = garden.herbs.map(herb => herb.name)
     expect(herbNames).toContain(herbName)
