@@ -2,6 +2,16 @@ import { Herb } from "./Herb.ts"
 import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 
 export class Garden {
+  
+  spawnHerb(herbName: HerbName): Herb {
+    if (herbName === HerbName.Thyme) {
+      return this.#spawnThyme()
+    } else if (herbName === HerbName.Basil) {
+      return this.#spawnBasil()
+    } else {
+      return this.#spawnRosemary()
+    }
+  }
 
   #spawnThyme(): Herb {
     const thyme = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
@@ -16,16 +26,6 @@ export class Garden {
   #spawnRosemary(): Herb {
     const rosemary = new Herb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
     return rosemary
-  }
-
-  spawnHerb(herbName: HerbName): Herb {
-    if (herbName === HerbName.Thyme) {
-      return this.#spawnThyme()
-    } else if (herbName === HerbName.Basil) {
-      return this.#spawnBasil()
-    } else {
-      return this.#spawnRosemary()
-    }
   }
 
 }
