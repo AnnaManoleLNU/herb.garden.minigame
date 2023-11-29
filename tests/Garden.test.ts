@@ -15,25 +15,17 @@ jest.mock('../src/Herb.ts', () => {
 })
 
 describe("Garden class", () => {
-  test("should spawn Thyme with watering needs low and optimal harvesting time day 2", () => {
-    const expectedName = HerbModule.HerbName.Thyme
-    const expectedWateringNeeds = 1
-    const expectedOptimalHarvestingTime = 2
-    const garden = new Garden()
+  spawnHerbTest(HerbModule.HerbName.Thyme, HerbModule.HerbName.Thyme, HerbModule.WateringNeeds.Low, HerbModule.OptimalHarvestingTime.Day2)
 
-    garden.spawnThyme()
-
-    expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
-  })
-
-  test("should spawn Basil with watering needs medium and optimal harvesting time day 3", () => {
-    const expectedName = HerbModule.HerbName.Basil
-    const expectedWateringNeeds = 2
-    const expectedOptimalHarvestingTime = 3
-    const garden = new Garden()
-
-    garden.spawnBasil()
-
-    expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
-  })
+  spawnHerbTest(HerbModule.HerbName.Basil, HerbModule.HerbName.Basil, HerbModule.WateringNeeds.Medium, HerbModule.OptimalHarvestingTime.Day3)
 })
+
+function spawnHerbTest(herbName: HerbModule.HerbName, expectedName: HerbModule.HerbName, expectedWateringNeeds: HerbModule.WateringNeeds, expectedOptimalHarvestingTime: HerbModule.OptimalHarvestingTime) {
+  test(`should spawn ${expectedName} with watering needs ${expectedWateringNeeds} and optimal harvesting time day ${expectedOptimalHarvestingTime}`, () => {
+    const garden = new Garden()
+
+    garden.spawnHerb(herbName)
+
+    expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
+  })
+}
