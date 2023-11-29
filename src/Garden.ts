@@ -13,11 +13,18 @@ export class Garden {
     return basil
   }
 
+  #spawnRosemary(): Herb {
+    const rosemary = new Herb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
+    return rosemary
+  }
+
   spawnHerb(herbName: HerbName): Herb {
     if (herbName === HerbName.Thyme) {
       return this.#spawnThyme()
-    } else {
+    } else if (herbName === HerbName.Basil) {
       return this.#spawnBasil()
+    } else {
+      return this.#spawnRosemary()
     }
   }
 
