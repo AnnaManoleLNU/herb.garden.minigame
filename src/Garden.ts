@@ -8,8 +8,9 @@ export class Garden {
     return thyme
   }
 
-  spawnBasil(): void {
-    
+  spawnBasil(): Herb {
+    const basil = new Herb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
+    return basil
   }
 
 }
