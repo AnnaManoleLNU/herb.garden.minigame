@@ -30,9 +30,7 @@ describe("Garden class", () => {
 function spawnHerbTest(herbName: HerbModule.HerbName, expectedName: HerbModule.HerbName, expectedWateringNeeds: HerbModule.WateringNeeds, expectedOptimalHarvestingTime: HerbModule.OptimalHarvestingTime) {
   test(`should spawn ${expectedName} with watering needs ${expectedWateringNeeds} and optimal harvesting time day ${expectedOptimalHarvestingTime}`, () => {
     const garden = new Garden()
-
     garden.spawnHerb(herbName)
-
     expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
   })
 }
