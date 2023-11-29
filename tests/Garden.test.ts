@@ -16,18 +16,13 @@ jest.mock('../src/Herb.ts', () => {
 
 describe("Garden class", () => {
 test("should spawn Thyme with watering needs low and optimal harvesting time day 2", () => {
-    // Arrange
   const expectedName = HerbModule.HerbName.Thyme
   const expectedWateringNeeds = 1
   const expectedOptimalHarvestingTime = 2
-  const garden = new Garden([])
+  const garden = new Garden()
 
-  // Act
   garden.spawnThyme()
 
-  // Assert
   expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
   })
 })
-
-
