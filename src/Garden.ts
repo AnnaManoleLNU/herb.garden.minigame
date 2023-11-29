@@ -8,4 +8,8 @@ export class Garden {
     return thyme
   }
 
+  spawnBasil(): void {
+    
+  }
+
 }

@@ -4,7 +4,7 @@ import * as HerbModule from '../src/Herb.ts'
 jest.mock('../src/Herb.ts', () => {
   return {
     Herb: jest.fn().mockImplementation((name, wateringNeeds, optimalHarvestingTime) => ({
-      name, 
+      name,
       wateringNeeds,
       optimalHarvestingTime,
     })),
@@ -15,14 +15,25 @@ jest.mock('../src/Herb.ts', () => {
 })
 
 describe("Garden class", () => {
-test("should spawn Thyme with watering needs low and optimal harvesting time day 2", () => {
-  const expectedName = HerbModule.HerbName.Thyme
-  const expectedWateringNeeds = 1
-  const expectedOptimalHarvestingTime = 2
-  const garden = new Garden()
+  test("should spawn Thyme with watering needs low and optimal harvesting time day 2", () => {
+    const expectedName = HerbModule.HerbName.Thyme
+    const expectedWateringNeeds = 1
+    const expectedOptimalHarvestingTime = 2
+    const garden = new Garden()
 
-  garden.spawnThyme()
+    garden.spawnThyme()
 
-  expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
+    expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
+  })
+
+  test("should spawn Basil with watering needs medium and optimal harvesting time day 3", () => {
+    const expectedName = HerbModule.HerbName.Basil
+    const expectedWateringNeeds = 2
+    const expectedOptimalHarvestingTime = 3
+    const garden = new Garden()
+
+    garden.spawnBasil()
+
+    expect(HerbModule.Herb).toHaveBeenCalledWith(expectedName, expectedWateringNeeds, expectedOptimalHarvestingTime)
   })
 })
