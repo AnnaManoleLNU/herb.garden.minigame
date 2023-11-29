@@ -20,6 +20,11 @@ describe("Garden class", () => {
   spawnHerbTest(HerbModule.HerbName.Basil, HerbModule.HerbName.Basil, HerbModule.WateringNeeds.Medium, HerbModule.OptimalHarvestingTime.Day3)
 
   spawnHerbTest(HerbModule.HerbName.Rosemary, HerbModule.HerbName.Rosemary, HerbModule.WateringNeeds.High, HerbModule.OptimalHarvestingTime.Day4)
+
+  test("should not allowed to spawn illegal herb", () => {
+    const garden = new Garden()
+    expect(() => garden.spawnHerb("Herb" as HerbModule.HerbName)).toThrow("Illegal herb name")
+  })
 })
 
 function spawnHerbTest(herbName: HerbModule.HerbName, expectedName: HerbModule.HerbName, expectedWateringNeeds: HerbModule.WateringNeeds, expectedOptimalHarvestingTime: HerbModule.OptimalHarvestingTime) {
