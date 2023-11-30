@@ -43,4 +43,9 @@ describe("Garden class", () => {
       expect(garden.herbs[i].name).toEqual(garden.herbs[i + 1].name)
     }
   })
+
+  test("should have an array of 6 possible permutations of herbs", () => {
+    expect(garden.herbPermutations.length).toEqual(6)
+  })
+
 })

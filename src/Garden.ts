@@ -3,6 +3,7 @@ import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 
 export class Garden {
   #herbs: Herb[] = []
+  #herbPermutations: Herb[][] = []
 
   constructor() {
     this.#spawnAllHerbsTwice()
@@ -10,6 +11,10 @@ export class Garden {
 
   get herbs(): Herb[] {
     return this.#herbs
+  }
+
+  get herbPermutations(): Herb[][] {
+    return this.#herbPermutations
   }
 
   #spawnThyme(): Herb {
@@ -34,5 +39,5 @@ export class Garden {
       this.#spawnRosemary()
     )
   }
-  
+
 }
