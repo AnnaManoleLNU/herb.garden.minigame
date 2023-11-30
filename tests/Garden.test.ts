@@ -33,5 +33,8 @@ describe("Garden class", () => {
   test("should spawn Rosemary in the constructor", () => {
     expect(HerbModule.Herb).toHaveBeenCalledWith(HerbModule.HerbName.Rosemary, HerbModule.WateringNeeds.High, HerbModule.OptimalHarvestingTime.Day4)
   })
-
+  
+  test("should spawn 6 herbs in the constructor", () => {
+    expect(HerbModule.Herb).toHaveBeenCalledTimes(6)
+  })
 })
