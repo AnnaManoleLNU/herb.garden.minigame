@@ -5,8 +5,7 @@ export class Garden {
   #herbs: Herb[] = []
 
   constructor() {
-    this.#herbs.push(this.#spawnThyme())
-    this.#herbs.push(this.#spawnBasil())
+    this.#spawnAllHerbs()
   }
 
   spawnHerb(herbName: HerbName): Herb {
@@ -34,6 +33,11 @@ export class Garden {
   #spawnRosemary(): Herb {
     const rosemary = new Herb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
     return rosemary
+  }
+
+  #spawnAllHerbs(): void {
+    this.#herbs.push(this.#spawnThyme())
+    this.#herbs.push(this.#spawnBasil())
   }
 
 }
