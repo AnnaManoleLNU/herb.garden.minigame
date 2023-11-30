@@ -2,9 +2,10 @@ import { Herb } from "./Herb.ts"
 import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 
 export class Garden {
+  #herbs: Herb[] = []
 
-  get herbs(): any {
-    return null
+  get herbs(): Herb[] {
+    return this.#herbs
   }
 
   spawnHerb(herbName: HerbName): Herb {

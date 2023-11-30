@@ -30,6 +30,8 @@ describe("Garden class", () => {
     const garden = new Garden()
     expect(garden.herbs).toEqual([])
   })
+
+
 })
 
 function spawnHerbTest(herbName: HerbModule.HerbName, expectedName: HerbModule.HerbName, expectedWateringNeeds: HerbModule.WateringNeeds, expectedOptimalHarvestingTime: HerbModule.OptimalHarvestingTime) {
