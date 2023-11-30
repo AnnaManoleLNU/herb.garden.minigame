@@ -9,6 +9,7 @@ export class Garden {
 
   constructor() {
     this.#spawnAllHerbsTwice()
+    this.#generateHerbPermutations()
   }
 
   get herbs(): Herb[] {
@@ -40,6 +41,13 @@ export class Garden {
       this.#spawnRosemary(),
       this.#spawnRosemary()
     )
+  }
+
+  #generateHerbPermutations(): void {
+    for (let i = 0; i < this.#herbPermutations.length; i++) {
+      this.#herbPermutations[i].push(...this.#herbs)
+    }
+    console.log(this.#herbPermutations)
   }
 
 }
