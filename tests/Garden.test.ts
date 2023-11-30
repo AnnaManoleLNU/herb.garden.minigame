@@ -37,4 +37,10 @@ describe("Garden class", () => {
   test("should spawn 6 herbs in the constructor", () => {
     expect(HerbModule.Herb).toHaveBeenCalledTimes(6)
   })
+
+  test("herbs of the same name should sit next to each other", () => {
+    for (let i = 0; i < 6; i += 2) {
+      expect(garden.herbs[i].name).toEqual(garden.herbs[i + 1].name)
+    }
+  })
 })

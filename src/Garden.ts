@@ -8,6 +8,10 @@ export class Garden {
     this.#spawnAllHerbsTwice()
   }
 
+  get herbs(): Herb[] {
+    return this.#herbs
+  }
+
   #spawnThyme(): Herb {
     return new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
   }
