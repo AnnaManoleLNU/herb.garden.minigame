@@ -3,6 +3,10 @@ import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 
 export class Garden {
 
+  get herbs(): any {
+    return null
+  }
+
   spawnHerb(herbName: HerbName): Herb {
     if (herbName === HerbName.Thyme) {
       return this.#spawnThyme()
