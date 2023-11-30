@@ -47,7 +47,6 @@ export class Garden {
     for (let i = 0; i < this.#herbPermutations.length; i++) {
       this.#herbPermutations[i].push(...this.#herbs)
     }
-    console.log(this.#herbPermutations)
   }
 
 }
