@@ -54,4 +54,12 @@ describe("Garden class", () => {
     }
   })
 
+  test("should generate unique permutations of herbs", () => {
+    for (let i = 0; i < garden.herbPermutations.length; i++) {
+      for (let j = i + 1; j < garden.herbPermutations.length; j++) {
+        expect(garden.herbPermutations[i]).not.toEqual(garden.herbPermutations[j])
+      }
+    }
+  })
+
 })
