@@ -26,11 +26,6 @@ describe("Garden class", () => {
     expect(() => garden.spawnHerb("Herb" as HerbModule.HerbName)).toThrow("Illegal herb name")
   })
 
-  test("should have an array of herbs", () => {
-    const garden = new Garden()
-    expect(garden.herbs).toEqual([])
-  })
-
   test("should spawn thyme in the constructor", () => {
     const garden = new Garden()
     
