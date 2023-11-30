@@ -36,6 +36,9 @@ describe("Garden class", () => {
     expect(HerbModule.Herb).toHaveBeenCalledWith(HerbModule.HerbName.Thyme, HerbModule.WateringNeeds.Low, HerbModule.OptimalHarvestingTime.Day2)
   })
 
+  test("should spawn Basil in the constructor", () => {
+    expect(HerbModule.Herb).toHaveBeenCalledWith(HerbModule.HerbName.Basil, HerbModule.WateringNeeds.Medium, HerbModule.OptimalHarvestingTime.Day3)
+})
 })
 
 function spawnHerbTest(herbName: HerbModule.HerbName, expectedName: HerbModule.HerbName, expectedWateringNeeds: HerbModule.WateringNeeds, expectedOptimalHarvestingTime: HerbModule.OptimalHarvestingTime) {
