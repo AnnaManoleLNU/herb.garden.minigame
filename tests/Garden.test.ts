@@ -44,8 +44,14 @@ describe("Garden class", () => {
     }
   })
 
-  test("should have an array of 6 possible permutations of herbs", () => {
+  test("should have an array of 6 possible permutations", () => {
     expect(garden.herbPermutations.length).toEqual(6)
+  })
+
+  test("should contain 6 herbs in all of the permutations", () => {
+    for (let i = 0; i < garden.herbPermutations.length; i++) {
+      expect(garden.herbPermutations[i].length).toEqual(6)
+    }
   })
 
 })
