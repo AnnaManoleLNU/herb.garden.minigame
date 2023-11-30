@@ -3,11 +3,10 @@ import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 
 export class Garden {
   #herbs: Herb[] = []
-  #herbPermutations: Herb[][] = []
+  #herbPermutations: Herb[][] = this.#generatePermutations()
 
   constructor() {
-    this.#spawnAllHerbsTwice()
-    this.#herbPermutations = this.#generatePermutations()
+    this.#spawnHerbsUsingRandomPermutation()
   }
 
   get herbs(): Herb[] {
@@ -16,6 +15,31 @@ export class Garden {
 
   get herbPermutations(): Herb[][] {
     return this.#herbPermutations
+  }
+
+  #spawnHerbsUsingRandomPermutation(): void {
+    const randomIndex = Math.floor(Math.random() * this.#herbPermutations.length)
+    const selectedPermutation = this.#herbPermutations[randomIndex]
+
+    this.#herbs = selectedPermutation
+  }
+
+  #generatePermutations(): Herb[][] {
+    const thyme1 = this.#spawnThyme()
+    const thyme2 = this.#spawnThyme()
+    const basil1 = this.#spawnBasil()
+    const basil2 = this.#spawnBasil()
+    const rosemary1 = this.#spawnRosemary()
+    const rosemary2 = this.#spawnRosemary()
+
+    return [
+      [thyme1, thyme2, basil1, basil2, rosemary1, rosemary2],
+      [thyme1, thyme2, rosemary1, rosemary2, basil1, basil2],
+      [basil1, basil2, thyme1, thyme2, rosemary1, rosemary2],
+      [basil1, basil2, rosemary1, rosemary2, thyme1, thyme2],
+      [rosemary1, rosemary2, thyme1, thyme2, basil1, basil2],
+      [rosemary1, rosemary2, basil1, basil2, thyme1, thyme2]
+    ]
   }
 
   #spawnThyme(): Herb {
@@ -29,29 +53,4 @@ export class Garden {
   #spawnRosemary(): Herb {
     return new Herb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
   }
-
-  #spawnAllHerbsTwice(): void {
-    this.#herbs.push(
-      this.#spawnThyme(),
-      this.#spawnThyme(),
-      this.#spawnBasil(),
-      this.#spawnBasil(),
-      this.#spawnRosemary(),
-      this.#spawnRosemary()
-    )
-  }
-
-  #generatePermutations(): Herb[][] {
-    const [thyme1, thyme2, basil1, basil2, rosemary1, rosemary2] = this.#herbs
-  
-    return [
-      [thyme1, thyme2, basil1, basil2, rosemary1, rosemary2],
-      [thyme1, thyme2, rosemary1, rosemary2, basil1, basil2],
-      [basil1, basil2, thyme1, thyme2, rosemary1, rosemary2],
-      [basil1, basil2, rosemary1, rosemary2, thyme1, thyme2],
-      [rosemary1, rosemary2, thyme1, thyme2, basil1, basil2],
-      [rosemary1, rosemary2, basil1, basil2, thyme1, thyme2]
-    ]
-  }
 }
-
