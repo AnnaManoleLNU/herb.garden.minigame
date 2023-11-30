@@ -25,12 +25,14 @@ export class Garden {
   }
 
   #spawnAllHerbsTwice(): void {
-      this.#herbs.push(this.#spawnThyme())
-      this.#herbs.push(this.#spawnThyme())
-      this.#herbs.push(this.#spawnBasil())
-      this.#herbs.push(this.#spawnBasil())
-      this.#herbs.push(this.#spawnRosemary())
-      this.#herbs.push(this.#spawnRosemary())
+    this.#herbs.push(
+      this.#spawnThyme(),
+      this.#spawnThyme(),
+      this.#spawnBasil(),
+      this.#spawnBasil(),
+      this.#spawnRosemary(),
+      this.#spawnRosemary()
+    )
   }
-
+  
 }
