@@ -38,6 +38,7 @@ export class Garden {
   #spawnAllHerbs(): void {
     this.#herbs.push(this.#spawnThyme())
     this.#herbs.push(this.#spawnBasil())
+    this.#herbs.push(this.#spawnRosemary())
   }
 
 }
