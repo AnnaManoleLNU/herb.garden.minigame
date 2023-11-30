@@ -4,12 +4,7 @@ import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 export class Garden {
   #herbs: Herb[] = []
   #herbPermutations: Herb[][] = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
+    [], [], [], [], [], []
   ]
 
   constructor() {
