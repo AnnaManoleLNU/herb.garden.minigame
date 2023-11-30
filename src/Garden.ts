@@ -3,13 +3,11 @@ import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
 
 export class Garden {
   #herbs: Herb[] = []
-  #herbPermutations: Herb[][] = [
-    [], [], [], [], [], []
-  ]
+  #herbPermutations: Herb[][] = []
 
   constructor() {
     this.#spawnAllHerbsTwice()
-    this.#generateHerbPermutations()
+    this.#herbPermutations = this.#generatePermutations()
   }
 
   get herbs(): Herb[] {
@@ -43,10 +41,17 @@ export class Garden {
     )
   }
 
-  #generateHerbPermutations(): void {
-    for (let i = 0; i < this.#herbPermutations.length; i++) {
-      this.#herbPermutations[i].push(...this.#herbs)
-    }
+  #generatePermutations(): Herb[][] {
+    const [thyme1, thyme2, basil1, basil2, rosemary1, rosemary2] = this.#herbs
+  
+    return [
+      [thyme1, thyme2, basil1, basil2, rosemary1, rosemary2],
+      [thyme1, thyme2, rosemary1, rosemary2, basil1, basil2],
+      [basil1, basil2, thyme1, thyme2, rosemary1, rosemary2],
+      [basil1, basil2, rosemary1, rosemary2, thyme1, thyme2],
+      [rosemary1, rosemary2, thyme1, thyme2, basil1, basil2],
+      [rosemary1, rosemary2, basil1, basil2, thyme1, thyme2]
+    ]
   }
-
 }
+
