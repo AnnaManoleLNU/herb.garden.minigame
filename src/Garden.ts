@@ -8,10 +8,6 @@ export class Garden {
     this.#herbs.push(this.#spawnThyme())
   }
 
-  get herbs(): Herb[] {
-    return this.#herbs
-  }
-
   spawnHerb(herbName: HerbName): Herb {
     if (herbName === HerbName.Thyme) {
       return this.#spawnThyme()
