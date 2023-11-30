@@ -5,29 +5,27 @@ export class Garden {
   #herbs: Herb[] = []
 
   constructor() {
-    this.#spawnAllHerbs()
-    this.#spawnAllHerbs()
+    this.#spawnAllHerbsTwice()
   }
 
   #spawnThyme(): Herb {
-    const thyme = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
-    return thyme
+    return new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
   }
 
   #spawnBasil(): Herb {
-    const basil = new Herb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
-    return basil
+    return new Herb(HerbName.Basil, WateringNeeds.Medium, OptimalHarvestingTime.Day3)
   }
 
   #spawnRosemary(): Herb {
-    const rosemary = new Herb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
-    return rosemary
+    return new Herb(HerbName.Rosemary, WateringNeeds.High, OptimalHarvestingTime.Day4)
   }
 
-  #spawnAllHerbs(): void {
-    this.#herbs.push(this.#spawnThyme())
-    this.#herbs.push(this.#spawnBasil())
-    this.#herbs.push(this.#spawnRosemary())
+  #spawnAllHerbsTwice(): void {
+    for (let i = 0; i < 2; i++) {
+      this.#herbs.push(this.#spawnThyme())
+      this.#herbs.push(this.#spawnBasil())
+      this.#herbs.push(this.#spawnRosemary())
+    }
   }
 
 }
