@@ -8,18 +8,6 @@ export class Garden {
     this.#spawnAllHerbs()
   }
 
-  spawnHerb(herbName: HerbName): Herb {
-    if (herbName === HerbName.Thyme) {
-      return this.#spawnThyme()
-    } else if (herbName === HerbName.Basil) {
-      return this.#spawnBasil()
-    } else if (herbName === HerbName.Rosemary) {
-      return this.#spawnRosemary()
-    } else {
-      throw new Error("Illegal herb name")
-    }
-  }
-
   #spawnThyme(): Herb {
     const thyme = new Herb(HerbName.Thyme, WateringNeeds.Low, OptimalHarvestingTime.Day2)
     return thyme
