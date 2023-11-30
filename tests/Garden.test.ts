@@ -31,7 +31,6 @@ describe("Garden class", () => {
     expect(garden.herbs).toEqual([])
   })
 
-
 })
 
 function spawnHerbTest(herbName: HerbModule.HerbName, expectedName: HerbModule.HerbName, expectedWateringNeeds: HerbModule.WateringNeeds, expectedOptimalHarvestingTime: HerbModule.OptimalHarvestingTime) {
