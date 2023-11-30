@@ -6,6 +6,7 @@ export class Garden {
 
   constructor() {
     this.#spawnAllHerbs()
+    this.#spawnAllHerbs()
   }
 
   #spawnThyme(): Herb {
