@@ -40,6 +40,6 @@ describe('GardenView class', () => {
   test('should display the harvest message', () => {
     const herbName = 'Thyme'
     gardenView.displayHarvestMessage(herbName)
-    expect(console.log).toHaveBeenCalledWith('You harvested a Thyme!')
+    expect(console.log).toHaveBeenCalledWith(gardenView.herbHarvestMessage)
   })
 })

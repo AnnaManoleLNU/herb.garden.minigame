@@ -6,6 +6,7 @@ export class GardenView {
   herbInformation: string = ''
   herbWateringMessage: string = ''
   herbQualityMessage: string = ''
+  herbHarvestMessage: string = ''
 
   constructor(garden: Garden) {
     this.garden = garden
@@ -40,6 +41,7 @@ export class GardenView {
   }
 
   displayHarvestMessage(herbName: string): void {
-    console.log(`You harvested a ${herbName}!`)
+    this.herbHarvestMessage = `You harvested a ${herbName}!`
+    console.log(this.herbHarvestMessage)
   }
 }
