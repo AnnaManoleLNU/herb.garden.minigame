@@ -13,9 +13,9 @@ export class GardenView {
   }
 
   displayAllHerbs() : void {
-    for (let i = 0; i < this.garden.herbs.length; i++) {
-      const herb = this.garden.herbs[i]
-      console.log(herb.name + ', with watering needs ' + herb.wateringNeeds + ', and optimal harvesting time Day ' + herb.optimalHarvestingTime + '\n')
-    }
+    this.garden.herbs.forEach(herb => {
+      const herbInformation = `${herb.name}, with watering needs ${herb.wateringNeeds}, and optimal harvesting time Day ${herb.optimalHarvestingTime}\n`
+      console.log(herbInformation)
+    })
   }
 }
