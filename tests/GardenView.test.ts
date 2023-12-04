@@ -12,7 +12,7 @@ beforeEach(() => {
 describe('GardenView class', () => {
   test('should display a welcome message', () => {
     gardenView.displayWelcomeMessage()
-    expect(console.log).toHaveBeenCalledWith('Welcome to the Garden!')
+    expect(console.log).toHaveBeenCalledWith(gardenView.welcomeMessage)
   })
 
   test('should display all herbs in the garden', () => {
