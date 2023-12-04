@@ -28,8 +28,14 @@ export class GardenView {
   }
 
   displayHerbQuality(herbName: string) : void {
-    const herb = this.garden.herbs.find(herb => herb.name === herbName)
-    this.herbQualityMessage = `The quality of ${herbName} is now: ${herb?.quality}`
-    console.log(this.herbQualityMessage)
+    let herbQuality: number = 0;
+    for (let herb of this.garden.herbs) {
+      if (herb.name === herbName) {
+        herbQuality = herb.quality;
+      }
+    }
+  
+    this.herbQualityMessage = `The quality of the ${herbName} is ${herbQuality}.`
+    console.log(this.herbQualityMessage);
   }
 }
