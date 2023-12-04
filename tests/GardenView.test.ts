@@ -20,10 +20,10 @@ describe('GardenView class', () => {
     expect(console.log).toHaveBeenCalledTimes(6)
   })
 
-  test('should display all herb names with a new line afterwards', () => {
+  test('should display all herb infomation with a new line afterwards', () => {
     gardenView.displayAllHerbs()
-    expect(console.log).toHaveBeenCalledWith('Thyme\n')
-    expect(console.log).toHaveBeenCalledWith('Basil\n')
-    expect(console.log).toHaveBeenCalledWith('Rosemary\n')
+    expect(console.log).toHaveBeenCalledWith('Thyme, with watering needs Low, and optimal harvesting time Day 2 \n')
+    expect(console.log).toHaveBeenCalledWith('Basil, with watering needs Medium, and optimal harvesting time Day 3 \n')
+    expect(console.log).toHaveBeenCalledWith('Rosemary, with watering needs High, and optimal harvesting time Day 4 \n')
   })
 })
