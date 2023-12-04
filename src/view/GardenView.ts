@@ -40,5 +40,6 @@ export class GardenView {
   }
 
   displayHarvestMessage(herbName: string): void {
+    console.log(`You harvested a ${herbName}!`)
   }
 }
