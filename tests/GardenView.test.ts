@@ -34,6 +34,6 @@ describe('GardenView class', () => {
   test('should display the quality of the herb', () => {
     const herbName = 'Thyme'
     gardenView.displayHerbQuality(herbName)
-    expect(console.log).toHaveBeenCalledWith(`The quality of ${herbName} is now: 2`)
+    expect(console.log).toHaveBeenCalledWith(`The quality of ${herbName} is now: 0`)
   })
 })

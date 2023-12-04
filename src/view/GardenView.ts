@@ -5,6 +5,7 @@ export class GardenView {
   welcomeMessage: string = 'Welcome to the Garden! These are the herbs you have to take care of:\n'
   herbInformation: string = ''
   herbWateringMessage: string = ''
+  herbQualityMessage: string = ''
 
   constructor(garden: Garden) {
     this.garden = garden
@@ -27,5 +28,8 @@ export class GardenView {
   }
 
   displayHerbQuality(herbName: string) : void {
+    const herb = this.garden.herbs.find(herb => herb.name === herbName)
+    this.herbQualityMessage = `The quality of ${herbName} is now: ${herb?.quality}`
+    console.log(this.herbQualityMessage)
   }
 }
