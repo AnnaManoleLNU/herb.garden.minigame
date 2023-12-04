@@ -22,7 +22,10 @@ export class GardenView {
   }
 
   displayHerbWateringMessage(herbName: string) : void {
-    this.herbWateringMessage = `You watered a ${herbName}!`
+    this.herbWateringMessage = `You watered a ${herbName}! `
     console.log(this.herbWateringMessage)
+  }
+
+  displayHerbQuality(herbName: string) : void {
   }
 }
