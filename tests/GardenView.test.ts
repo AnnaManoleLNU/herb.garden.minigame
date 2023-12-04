@@ -19,4 +19,11 @@ describe('GardenView class', () => {
     gardenView.displayAllHerbs()
     expect(console.log).toHaveBeenCalledTimes(6)
   })
+
+  test('should display all herb names with a new line afterwards', () => {
+    gardenView.displayAllHerbs()
+    expect(console.log).toHaveBeenCalledWith('Thyme\n')
+    expect(console.log).toHaveBeenCalledWith('Basil\n')
+    expect(console.log).toHaveBeenCalledWith('Rosemary\n')
+  })
 })
