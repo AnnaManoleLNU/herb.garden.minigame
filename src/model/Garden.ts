@@ -1,5 +1,5 @@
-import { Herb } from "./Herb.ts"
-import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb.ts"
+import { Herb } from "./Herb"
+import { HerbName, OptimalHarvestingTime, WateringNeeds } from "./Herb"
 
 export class Garden {
   #herbs: Herb[] = []

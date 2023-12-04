@@ -1,4 +1,4 @@
-import { Herb, HerbName, WateringNeeds, OptimalHarvestingTime } from "../src/Herb"
+import { Herb, HerbName, WateringNeeds, OptimalHarvestingTime } from "../src/model/Herb"
 
 describe("Herb class with valid enum values", () => {
   test("should create a Herb instance with valid enum values", () => {

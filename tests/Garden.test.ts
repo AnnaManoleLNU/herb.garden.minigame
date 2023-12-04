@@ -1,5 +1,5 @@
-import { Garden } from '../src/Garden.ts'
-import * as HerbModule from '../src/Herb.ts'
+import { Garden } from '../src/model/Garden'
+import * as HerbModule from '../src/model/Herb'
 
 let garden: Garden
 
@@ -8,16 +8,16 @@ beforeEach(() => {
   garden = new Garden()
 })
 
-jest.mock('../src/Herb.ts', () => {
+jest.mock('../src/model/Herb.ts', () => {
   return {
     Herb: jest.fn().mockImplementation((name, wateringNeeds, optimalHarvestingTime) => ({
       name,
       wateringNeeds,
       optimalHarvestingTime,
     })),
-    HerbName: jest.requireActual('../src/Herb.ts').HerbName,
-    WateringNeeds: jest.requireActual('../src/Herb.ts').WateringNeeds,
-    OptimalHarvestingTime: jest.requireActual('../src/Herb.ts').OptimalHarvestingTime,
+    HerbName: jest.requireActual('../src/model/Herb.ts').HerbName,
+    WateringNeeds: jest.requireActual('../src/model/Herb.ts').WateringNeeds,
+    OptimalHarvestingTime: jest.requireActual('../src/model/Herb.ts').OptimalHarvestingTime,
   }
 })
 
