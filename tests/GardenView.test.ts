@@ -22,8 +22,8 @@ describe('GardenView class', () => {
 
   test('should display all herb infomation with a new line afterwards', () => {
     gardenView.displayAllHerbs()
-    expect(console.log).toHaveBeenCalledWith('Thyme, with watering needs Low, and optimal harvesting time Day 2 \n')
-    expect(console.log).toHaveBeenCalledWith('Basil, with watering needs Medium, and optimal harvesting time Day 3 \n')
-    expect(console.log).toHaveBeenCalledWith('Rosemary, with watering needs High, and optimal harvesting time Day 4 \n')
+    expect(console.log).toHaveBeenCalledWith('Thyme, with watering needs 1, and optimal harvesting time Day 2\n')
+    expect(console.log).toHaveBeenCalledWith('Basil, with watering needs 2, and optimal harvesting time Day 3\n')
+    expect(console.log).toHaveBeenCalledWith('Rosemary, with watering needs 3, and optimal harvesting time Day 4\n')
   })
 })
