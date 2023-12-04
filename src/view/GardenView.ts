@@ -14,7 +14,7 @@ export class GardenView {
   displayAllHerbs() {
     for (let i = 0; i < this.garden.herbs.length; i++) {
       const herb = this.garden.herbs[i]
-      console.log(herb.name + ', ')
+      console.log(herb.name + '\n')
     }
   }
 }
