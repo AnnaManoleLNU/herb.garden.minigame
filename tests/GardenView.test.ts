@@ -24,4 +24,10 @@ describe('GardenView class', () => {
     gardenView.displayAllHerbs()
     expect(console.log).toHaveBeenCalledWith(gardenView.herbInformation)
   })
+
+  test('should display a message when a herb is watered', () => {
+    const herbName = 'Thyme'
+    gardenView.displayHerbWateringMessage(herbName)
+    expect(console.log).toHaveBeenCalledWith(`You watered a ${herbName}!`)
+  })
 })
