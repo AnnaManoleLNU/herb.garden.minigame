@@ -2,9 +2,11 @@ import { Herb, HerbName } from '../src/model/Herb'
 import { Player } from '../src/model/Player'
 
 let player: Player
+let herb: Herb
 
 beforeEach(() => {
   player = new Player()
+  herb = new Herb(HerbName.Thyme, 1, 2)
 })
 
 describe('Player class score', () => {
@@ -60,13 +62,11 @@ describe("Player's inventory", () => {
   })
 
   test('should add a herb to the inventory', () => {
-    const herb = new Herb(HerbName.Thyme, 1, 2)
     player.addToInventory(herb)
     expect(player.inventory).toContain(herb)
   })
 
   test('should have a maximum of 6 herbs in the inventory', () => {
-    const herb = new Herb(HerbName.Thyme, 1, 2)
     for (let i = 0; i < 7; i++) {
       player.addToInventory(herb)
     }
