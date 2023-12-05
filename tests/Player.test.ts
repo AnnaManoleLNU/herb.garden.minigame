@@ -54,7 +54,7 @@ describe('Player class score', () => {
 })
 
 describe("Player's inventory", () => {
-  test('should start as an empty array of Herbs', () =>{
+  test('should start as an empty array of Herbs', () => {
     const arrayOfHerbs = [] as Herb[]
     expect(player.inventory).toEqual(arrayOfHerbs)
   })
@@ -64,5 +64,12 @@ describe("Player's inventory", () => {
     player.addToInventory(herb)
     expect(player.inventory).toContain(herb)
   })
-})
 
+  test('should have a maximum of 6 herbs in the inventory', () => {
+    const herb = new Herb(HerbName.Thyme, 1, 2)
+    for (let i = 0; i < 7; i++) {
+      player.addToInventory(herb)
+    }
+    expect(player.inventory.length).toBe(6)
+  })
+})
