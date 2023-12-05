@@ -72,4 +72,10 @@ describe("Player's inventory", () => {
     }
     expect(player.inventory.length).toBe(6)
   })
+
+  test('should reset the inventory to an empty array', () => {
+    player.addToInventory(herb)
+    player.resetInventory()
+    expect(player.inventory).toEqual([])
+  })
 })

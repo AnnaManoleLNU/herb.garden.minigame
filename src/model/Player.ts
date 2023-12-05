@@ -41,4 +41,7 @@ export class Player {
       this.#inventory.push(herb)
     }
   }
+
+  resetInventory(): void {
+  }
 }
