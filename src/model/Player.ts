@@ -6,8 +6,10 @@ export class Player {
   }
 
   addPoint(value: number): void {
-    // if the value is not positive, do not change the score
-    if (value <= 0) return
-    this.#score += value
+    if (value > 0) {
+      this.#score += value
+    } else {
+      this.#score += 0
+    }
   }
 }
