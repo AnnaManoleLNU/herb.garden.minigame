@@ -78,4 +78,11 @@ describe("Player's inventory", () => {
     player.resetInventory()
     expect(player.inventory).toEqual([])
   })
+
+  test('should have maximum 2 of the same herb', () => {
+    player.addToInventory(herb)
+    player.addToInventory(herb)
+    player.addToInventory(herb)
+    expect(player.inventory.length).toBe(2)
+  })
 })
