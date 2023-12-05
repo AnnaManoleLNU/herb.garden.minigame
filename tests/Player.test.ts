@@ -12,27 +12,27 @@ describe('Player class', () => {
   })
 
   test('score should increase by 3 when passing in 3 (max herb quality)', () => {
-    player.addPoint(3)
+    player.addScore(3)
     expect(player.score).toBe(3)
   })
 
   test('adding in a negative value should not change the score', () => {
-    player.addPoint(-3)
+    player.addScore(-3)
     expect(player.score).toBe(0)
   })
 
   test('max score should be 36 (6 herbs with 6 points to get from watering perfecty and harvesting perfectly)', () => {
     const score = 36
-    player.addPoint(score)
+    player.addScore(score)
     const illegalPoint = 1
-    player.addPoint(illegalPoint)
+    player.addScore(illegalPoint)
     expect(player.score).toBe(score)
   })
 
-  test('adding a point that exceeds max score should set score to max score', () => {
-    player.addPoint(35)
-    player.addPoint(2)
+  test('adding points that exceeds max score should not change the score', () => {
+    player.addScore(35)
+    player.addScore(2)
     expect(player.score).toBe(35)
-  });
+  })
 })
 
