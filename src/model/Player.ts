@@ -1,7 +1,8 @@
 export class Player {
+  #score: number = 0
 
   get score(): any {
-    return 0
+    return this.#score
   }
 
 }
