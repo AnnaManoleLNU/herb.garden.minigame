@@ -28,5 +28,11 @@ describe('Player class', () => {
     player.addPoint(illegalPoint)
     expect(player.score).toBe(score)
   })
+
+  test('adding a point that exceeds max score should set score to max score', () => {
+    player.addPoint(35)
+    player.addPoint(2)
+    expect(player.score).toBe(36)
+  });
 })
 
