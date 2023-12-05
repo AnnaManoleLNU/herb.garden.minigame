@@ -5,7 +5,7 @@ export class Player {
     return this.#score
   }
 
-  addPoint(): void {
+  addPoint(value:number): void {
     this.#score++
   }
 }

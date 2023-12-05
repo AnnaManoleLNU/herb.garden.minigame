@@ -8,8 +8,15 @@ describe('Player class', () => {
 
   test('score should increase by 1 after adding point', () => {
     const player = new Player()
-    player.addPoint()
+    player.addPoint(1)
     expect(player.score).toBe(1)
+  })
+
+  // score should be affected by the quality of the herb
+  test('score should increase by 3 when passing in 3 (max herb quality)', () => {
+    const player = new Player()
+    player.addPoint(3)
+    expect(player.score).toBe(3)
   })
 })
 
