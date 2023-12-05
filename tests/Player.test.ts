@@ -34,5 +34,10 @@ describe('Player class', () => {
     player.addScore(2)
     expect(player.score).toBe(35)
   })
+
+  test('adding a float should throw exception', () => {
+    player.addScore(1.5)
+    expect(player.addScore).toThrow()
+  })
 })
 
