@@ -44,5 +44,11 @@ describe('Player class score', () => {
     expect(() => player.addScore(1.5)).toThrow()
     expect(player.score).toBe(initialScore)
   })
+
+  test('should be resetable to 0', () => {
+    player.addScore(1)
+    player.resetScore()
+    expect(player.score).toBe(0)
+  })
 })
 

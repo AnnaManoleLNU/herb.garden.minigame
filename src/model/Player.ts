@@ -24,4 +24,8 @@ export class Player {
       throw new Error("Value to be added must be an integer.")
     }
   }
+
+  resetScore(): void {
+
+  }
 }
