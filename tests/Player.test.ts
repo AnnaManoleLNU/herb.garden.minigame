@@ -59,7 +59,7 @@ describe("Player's inventory", () => {
     expect(player.inventory).toEqual(arrayOfHerbs)
   })
 
-  test('should be able to add a herb to the inventory', () => {
+  test('should add a herb to the inventory', () => {
     const herb = new Herb(HerbName.Thyme, 1, 2)
     player.addToInventory(herb)
     expect(player.inventory).toContain(herb)
