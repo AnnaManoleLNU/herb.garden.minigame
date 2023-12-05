@@ -32,7 +32,7 @@ export class Player {
     this.#score = 0
   }
 
-  get inventory(): any {
+  get inventory(): Herb[] {
     return this.#inventory
   }
 }
