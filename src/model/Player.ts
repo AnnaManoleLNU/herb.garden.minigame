@@ -43,5 +43,6 @@ export class Player {
   }
 
   resetInventory(): void {
+    this.#inventory = []
   }
 }
