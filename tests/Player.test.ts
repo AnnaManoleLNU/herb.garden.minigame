@@ -38,5 +38,10 @@ describe('Player class score', () => {
   test('adding a float to the score should throw exception', () => {
     expect(() => player.addScore(1.5)).toThrow()
   })
+
+  test('adding a float to the score should not change the value', () => {
+    player.addScore(1.5)
+    expect(player.score).toBe(0)
+  })
 })
 
