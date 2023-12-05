@@ -37,5 +37,6 @@ export class Player {
   }
 
   addToInventory(herb: Herb): void {
+    this.#inventory.push(herb)
   }
 }
