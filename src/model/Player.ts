@@ -37,6 +37,8 @@ export class Player {
   }
 
   addToInventory(herb: Herb): void {
-    this.#inventory.push(herb)
+    if (this.#inventory.length < 6) {
+      this.#inventory.push(herb)
+    }
   }
 }
