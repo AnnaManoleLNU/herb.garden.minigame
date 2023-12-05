@@ -11,5 +11,11 @@ describe('Player class', () => {
     player.addPoint(3)
     expect(player.score).toBe(3)
   })
+
+  test('adding in a negative value should not change the score', () => {
+    const player = new Player()
+    player.addPoint(-3)
+    expect(player.score).toBe(0)
+  })
 })
 
