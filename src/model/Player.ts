@@ -5,4 +5,7 @@ export class Player {
     return this.#score
   }
 
+  addPoint(): void {
+  }
+
 }
