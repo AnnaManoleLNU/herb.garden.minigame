@@ -13,7 +13,7 @@ beforeEach(() => {
   basil = new Herb(HerbName.Basil, 3, 4)
 })
 
-describe('Player class score', () => {
+describe('Player score', () => {
   test('should be 0 when created', () => {
     expect(player.score).toBe(0)
   })
@@ -59,36 +59,36 @@ describe('Player class score', () => {
   })
 })
 
-describe("Player's inventory", () => {
+describe('Player inventory', () => {
   test('should start as an empty array of Herbs', () => {
     const arrayOfHerbs = [] as Herb[]
     expect(player.inventory).toEqual(arrayOfHerbs)
   })
 
   test('should contain a herb after adding a herb', () => {
-    player.addToInventory(thyme)
+    player.harvest(thyme)
     expect(player.inventory).toContain(thyme)
   })
 
   test('should have a maximum of 6 herbs', () => {
     for (let i = 0; i < 3; i++) {
-      player.addToInventory(thyme)
-      player.addToInventory(rosemary)
-      player.addToInventory(basil)
+      player.harvest(thyme)
+      player.harvest(rosemary)
+      player.harvest(basil)
     }
     expect(player.inventory.length).toBe(6)
   })
 
-  test('should be resetable to an empty array of Herbs', () => {
-    player.addToInventory(thyme)
-    player.resetInventory()
-    expect(player.inventory).toEqual([])
+  test('should have maximum 2 of the same herb', () => {
+    player.harvest(thyme)
+    player.harvest(thyme)
+    player.harvest(thyme)
+    expect(player.inventory.length).toBe(2)
   })
 
-  test('should have maximum 2 of the same herb', () => {
-    player.addToInventory(thyme)
-    player.addToInventory(thyme)
-    player.addToInventory(thyme)
-    expect(player.inventory.length).toBe(2)
+  test('should be resetable to an empty array of Herbs', () => {
+    player.harvest(thyme)
+    player.resetInventory()
+    expect(player.inventory).toEqual([])
   })
 })
