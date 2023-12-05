@@ -17,5 +17,15 @@ describe('Player class', () => {
     player.addPoint(-3)
     expect(player.score).toBe(0)
   })
+
+  test('max score should be 6 x 6', () => {
+    const player = new Player()
+    // 6 herbs, 6 max quality each (3 from watering perfectly, 3 from harvesting perfectly)
+    const score = 6 * 6 
+    player.addPoint(score)
+    const illegalPoint = 1
+    player.addPoint(illegalPoint)
+    expect(player.score).toBe(score)
+})
 })
 
