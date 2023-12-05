@@ -6,7 +6,7 @@ beforeEach(() => {
   player = new Player()
 })
 
-describe('Player class', () => {
+describe('Player class score', () => {
   test('should have a score of 0 when created', () => {
     expect(player.score).toBe(0)
   })
@@ -35,7 +35,7 @@ describe('Player class', () => {
     expect(player.score).toBe(35)
   })
 
-  test('adding a float should throw exception', () => {
+  test('adding a float to the score should throw exception', () => {
     expect(() => player.addScore(1.5)).toThrow()
   })
 })

@@ -6,11 +6,8 @@ export class Player {
   }
 
   addScore(value: number): void {
-    // throw exception if value is a float
-    if (value % 1 !== 0) {
-      throw new Error("Value to be added must be an integer.")
-    }
-    
+    this.#throwErrorIfValueNotInteger(value)
+
     if (this.#score + value > 36) {
       return
     }
@@ -20,6 +17,11 @@ export class Player {
     } else {
       this.#score += 0
     }
+  }
 
+  #throwErrorIfValueNotInteger(value: number): void {
+    if (value % 1 !== 0) {
+      throw new Error("Value to be added must be an integer.")
+    }
   }
 }
