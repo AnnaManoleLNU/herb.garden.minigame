@@ -26,6 +26,6 @@ export class Player {
   }
 
   resetScore(): void {
-
+    this.#score = 0
   }
 }
