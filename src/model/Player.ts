@@ -1,12 +1,11 @@
 export class Player {
   #score: number = 0
 
-  get score(): any {
+  get score(): number {
     return this.#score
   }
 
   addPoint(): void {
-    this.#score = this.#score + 1
+    this.#score++
   }
-
 }
