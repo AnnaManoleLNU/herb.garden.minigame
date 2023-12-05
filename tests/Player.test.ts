@@ -61,19 +61,19 @@ describe("Player's inventory", () => {
     expect(player.inventory).toEqual(arrayOfHerbs)
   })
 
-  test('should add a herb to the inventory', () => {
+  test('should contain a herb after adding a herb', () => {
     player.addToInventory(herb)
     expect(player.inventory).toContain(herb)
   })
 
-  test('should have a maximum of 6 herbs in the inventory', () => {
+  test('should have a maximum of 6 herbs', () => {
     for (let i = 0; i < 7; i++) {
       player.addToInventory(herb)
     }
     expect(player.inventory.length).toBe(6)
   })
 
-  test('should reset the inventory to an empty array', () => {
+  test('should be resetable to an empty array of Herbs', () => {
     player.addToInventory(herb)
     player.resetInventory()
     expect(player.inventory).toEqual([])
