@@ -1,3 +1,4 @@
+import { Herb } from '../src/model/Herb'
 import { Player } from '../src/model/Player'
 
 let player: Player
@@ -49,6 +50,13 @@ describe('Player class score', () => {
     player.addScore(1)
     player.resetScore()
     expect(player.score).toBe(0)
+  })
+})
+
+describe("Player's inventory", () => {
+  test('should start as an empty array of Herbs', () =>{
+    const arrayOfHerbs = [] as Herb[]
+    expect(player.inventory).toBe(arrayOfHerbs)
   })
 })
 

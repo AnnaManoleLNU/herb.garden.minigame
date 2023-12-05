@@ -1,5 +1,6 @@
 export class Player {
   #score: number = 0
+  #inventory = []
 
   get score(): number {
     return this.#score
@@ -27,5 +28,9 @@ export class Player {
 
   resetScore(): void {
     this.#score = 0
+  }
+
+  get inventory(): any {
+    return null
   }
 }
