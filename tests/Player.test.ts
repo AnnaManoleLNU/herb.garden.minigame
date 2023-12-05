@@ -1,4 +1,4 @@
-import { Herb } from '../src/model/Herb'
+import { Herb, HerbName } from '../src/model/Herb'
 import { Player } from '../src/model/Player'
 
 let player: Player
@@ -57,6 +57,12 @@ describe("Player's inventory", () => {
   test('should start as an empty array of Herbs', () =>{
     const arrayOfHerbs = [] as Herb[]
     expect(player.inventory).toEqual(arrayOfHerbs)
+  })
+
+  test('should be able to add a herb to the inventory', () => {
+    const herb = new Herb(HerbName.Thyme, 1, 2)
+    player.addToInventory(herb)
+    expect(player.inventory).toContain(herb)
   })
 })
 

@@ -35,4 +35,7 @@ export class Player {
   get inventory(): Herb[] {
     return this.#inventory
   }
+
+  addToInventory(herb: Herb): void {
+  }
 }
