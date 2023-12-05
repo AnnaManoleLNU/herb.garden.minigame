@@ -56,7 +56,7 @@ describe('Player class score', () => {
 describe("Player's inventory", () => {
   test('should start as an empty array of Herbs', () =>{
     const arrayOfHerbs = [] as Herb[]
-    expect(player.inventory).toBe(arrayOfHerbs)
+    expect(player.inventory).toEqual(arrayOfHerbs)
   })
 })
 

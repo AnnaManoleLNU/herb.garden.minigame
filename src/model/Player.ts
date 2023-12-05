@@ -1,6 +1,8 @@
+import { Herb } from "./Herb"
+
 export class Player {
   #score: number = 0
-  #inventory = []
+  #inventory: Herb[] = []
 
   get score(): number {
     return this.#score
@@ -31,6 +33,6 @@ export class Player {
   }
 
   get inventory(): any {
-    return null
+    return this.#inventory
   }
 }
