@@ -2,11 +2,15 @@ import { Herb, HerbName } from '../src/model/Herb'
 import { Player } from '../src/model/Player'
 
 let player: Player
-let herb: Herb
+let thyme: Herb
+let rosemary: Herb
+let basil: Herb
 
 beforeEach(() => {
   player = new Player()
-  herb = new Herb(HerbName.Thyme, 1, 2)
+  thyme = new Herb(HerbName.Thyme, 1, 2)
+  rosemary = new Herb(HerbName.Rosemary, 2, 3)
+  basil = new Herb(HerbName.Basil, 3, 4)
 })
 
 describe('Player class score', () => {
@@ -62,27 +66,29 @@ describe("Player's inventory", () => {
   })
 
   test('should contain a herb after adding a herb', () => {
-    player.addToInventory(herb)
-    expect(player.inventory).toContain(herb)
+    player.addToInventory(thyme)
+    expect(player.inventory).toContain(thyme)
   })
 
   test('should have a maximum of 6 herbs', () => {
-    for (let i = 0; i < 7; i++) {
-      player.addToInventory(herb)
+    for (let i = 0; i < 3; i++) {
+      player.addToInventory(thyme)
+      player.addToInventory(rosemary)
+      player.addToInventory(basil)
     }
     expect(player.inventory.length).toBe(6)
   })
 
   test('should be resetable to an empty array of Herbs', () => {
-    player.addToInventory(herb)
+    player.addToInventory(thyme)
     player.resetInventory()
     expect(player.inventory).toEqual([])
   })
 
   test('should have maximum 2 of the same herb', () => {
-    player.addToInventory(herb)
-    player.addToInventory(herb)
-    player.addToInventory(herb)
+    player.addToInventory(thyme)
+    player.addToInventory(thyme)
+    player.addToInventory(thyme)
     expect(player.inventory.length).toBe(2)
   })
 })

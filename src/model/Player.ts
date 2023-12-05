@@ -37,9 +37,15 @@ export class Player {
   }
 
   addToInventory(herb: Herb): void {
+    // should have a maximum of 2 herbs of same HerbName
+    if (this.#inventory.filter(h => h.name === herb.name).length === 2) {
+      return
+    }
+    
     if (this.#inventory.length < 6) {
       this.#inventory.push(herb)
     }
+
   }
 
   resetInventory(): void {
