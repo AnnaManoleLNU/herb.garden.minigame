@@ -6,7 +6,7 @@ export class Player {
   }
 
   addPoint(value: number): void {
-    if (value > 0) {
+    if (value > 0 && this.#score < 36) {
       this.#score += value
     } else {
       this.#score += 0
