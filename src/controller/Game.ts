@@ -15,5 +15,6 @@ export class Game {
 
   start(): void {
     this.view.displayWelcomeMessage()
+    this.view.displayAllHerbs()
   }
 }
