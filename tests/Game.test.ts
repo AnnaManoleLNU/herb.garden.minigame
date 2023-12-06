@@ -47,12 +47,12 @@ describe('Game class', () => {
 
 describe('Game start method', () => {
   test('should call the displayWelcomeMessage method from view', () => {
-    game.start()
+    game.displayStartMessages()
     expect(mockDisplayWelcomeMessage).toHaveBeenCalledTimes(1)
   })
 
   test('should call the displayAllHerbs method from view', () => {
-    game.start()
+    game.displayStartMessages()
     expect(mockDisplayAllHerbs).toHaveBeenCalledTimes(1)
   })
 })
