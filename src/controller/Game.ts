@@ -1,9 +1,10 @@
 import { Player } from '../model/Player'
 
 export class Game {
+  player: Player
 
   constructor() {
-    const player = new Player()
+    this.player = new Player()
   }
 
 }

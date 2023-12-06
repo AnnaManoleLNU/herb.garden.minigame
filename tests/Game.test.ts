@@ -1,6 +1,13 @@
 import { Game } from '../src/controller/Game'
 import { Player } from '../src/model/Player'
 
+let game: Game
+
+beforeEach(() => {
+  jest.clearAllMocks()
+  game = new Game()
+})
+
 jest.mock('../src/model/Player.ts', () => {
   return {
     Player: jest.fn().mockImplementation()
@@ -9,9 +16,6 @@ jest.mock('../src/model/Player.ts', () => {
 
 describe('Game class', () => {
   test('should instantiate a Player object in its constructor', () => {
-    const game = new Game()
-
     expect(Player).toHaveBeenCalledTimes(1)
-
   })
 })
