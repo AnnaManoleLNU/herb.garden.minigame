@@ -14,5 +14,6 @@ export class Game {
   }
 
   start(): void {
+    this.view.displayWelcomeMessage()
   }
 }
