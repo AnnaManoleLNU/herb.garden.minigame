@@ -7,7 +7,7 @@ jest.mock('../src/model/Player.ts', () => {
   }
 })
 
-describe('Game', () => {
+describe('Game class', () => {
   test('should instantiate a Player object in its constructor', () => {
     const game = new Game()
 
