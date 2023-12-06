@@ -1,6 +1,7 @@
 import { Game } from '../src/controller/Game'
 import { Player } from '../src/model/Player'
 import { Garden } from '../src/model/Garden'
+import { GardenView } from '../src/view/GardenView'
 
 let game: Game
 
@@ -21,6 +22,12 @@ jest.mock('../src/model/Garden.ts', () => {
   }
 })
 
+jest.mock('../src/view/GardenView.ts', () => {
+  return {
+    GardenView: jest.fn().mockImplementation()
+  }
+})
+
 describe('Game class', () => {
   test('should instantiate a Player object in its constructor', () => {
     expect(Player).toHaveBeenCalledTimes(1)
@@ -28,5 +35,9 @@ describe('Game class', () => {
 
   test('should instantiate a Garden object in its constructor', () => {
     expect(Garden).toHaveBeenCalledTimes(1)
+  })
+
+  test('should instantiate a view object in its constructor', () => {
+    expect(GardenView).toHaveBeenCalledTimes(1)
   })
 })
