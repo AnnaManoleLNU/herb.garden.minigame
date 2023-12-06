@@ -5,7 +5,7 @@ import { GardenView } from '../view/GardenView'
 export class Game {
   player: Player
   garden: Garden
-  view: any
+  view: GardenView
 
   constructor() {
     this.player = new Player()
