@@ -3,20 +3,10 @@ import { Player } from '../src/model/Player'
 import { Garden } from '../src/model/Garden'
 import { GardenView } from '../src/view/GardenView'
 
-jest.mock('../src/model/Player.ts', () => {
-  return {
-    Player: jest.fn().mockImplementation()
-  }
-})
-
-jest.mock('../src/model/Garden.ts', () => {
-  return {
-    Garden: jest.fn().mockImplementation()
-  }
-})
+jest.mock('../src/model/Player')
+jest.mock('../src/model/Garden')
 
 const mockDisplayWelcomeMessage = jest.fn()
-
 jest.mock('../src/view/GardenView.ts', () => {
   return {
     GardenView: jest.fn().mockImplementation(() => {
