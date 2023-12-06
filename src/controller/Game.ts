@@ -12,4 +12,7 @@ export class Game {
     this.garden = new Garden()
     this.view = new GardenView(this.garden)
   }
+
+  start(): void {
+  }
 }
