@@ -9,5 +9,4 @@ export class Game {
     this.player = new Player()
     this.garden = new Garden()
   }
-
 }
