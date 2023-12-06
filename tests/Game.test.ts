@@ -7,11 +7,13 @@ jest.mock('../src/model/Player')
 jest.mock('../src/model/Garden')
 
 const mockDisplayWelcomeMessage = jest.fn()
+const mockDisplayAllHerbs = jest.fn()
 jest.mock('../src/view/GardenView.ts', () => {
   return {
     GardenView: jest.fn().mockImplementation(() => {
       return {
-        displayWelcomeMessage: mockDisplayWelcomeMessage
+        displayWelcomeMessage: mockDisplayWelcomeMessage,
+        displayAllHerbs: mockDisplayAllHerbs,
       }
     })
   }
@@ -47,5 +49,10 @@ describe('Game start method', () => {
   test('should call the display welcome message from view', () => {
     game.start()
     expect(mockDisplayWelcomeMessage).toHaveBeenCalledTimes(1)
+  })
+
+  test('should call the display all herbs from view', () => {
+    game.start()
+    expect(mockDisplayAllHerbs).toHaveBeenCalledTimes(1)
   })
 })
